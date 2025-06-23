@@ -28,18 +28,21 @@ print(f"Found: {title}")
 with open(INDEX_FILE, "r", encoding="utf-8") as f:
     html = f.read()
 
-insertion_point = html.find("</body>")
+insertion_marker = "<!-- Law entries will be inserted here by the Python script -->"
+insertion_point = html.find(insertion_marker)
 if insertion_point == -1:
-    print("Could not find </body> in HTML.")
+    print("Could not find insertion marker in HTML.")
     exit()
+
+insertion_point += len(insertion_marker)
 
 # ---- Step 4: Insert new entry block ----
 entry_html = f"""
-  <div class="entry">
-    <h2>{DATE_DISPLAY}</h2>
-    <p><strong>Law:</strong> {title}</p>
-    <p><a href="{link}">View on legislation.gov.uk</a></p>
-  </div>
+    <div class="law-entry">
+      <h2>{DATE_DISPLAY}</h2>
+      <p><strong>Law:</strong> {title}</p>
+      <p><a href="{link}">View on legislation.gov.uk</a></p>
+    </div>
 """
 
 html = html[:insertion_point] + entry_html + html[insertion_point:]
