@@ -10,7 +10,7 @@ INDEX_FILE = "index.html"
 LAST_SEEN_FILE = "last_law.txt"
 FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
 DATE_DISPLAY = datetime.today().strftime("%-d %B %Y")
-OPENROUTER_API_KEY = "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"
+API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
 
 # ---- Step 1: Fetch feed ----
