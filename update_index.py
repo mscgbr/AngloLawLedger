@@ -10,7 +10,7 @@ DATE_DISPLAY = datetime.today().strftime("%-d %B %Y")
 # ---- Step 1: Fetch feed ----
 print("Fetching latest UK law from official feed...")
 r = requests.get(FEED_URL)
-soup = BeautifulSoup(r.content, "xml")
+soup = BeautifulSoup(r.content, "lxml-xml")
 
 entries = soup.find_all("entry")
 if not entries:
