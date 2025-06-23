@@ -8,9 +8,17 @@
       font-family: "Times New Roman", Times, serif;
       background-color: #fdf6e3;
       color: #222;
-      margin: 40px auto;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
       max-width: 800px;
-      line-height: 1.6;
+      margin: 40px auto;
+      padding: 0 20px;
     }
     h1 {
       font-size: 2.5em;
@@ -28,28 +36,35 @@
       margin-bottom: 1.5em;
     }
     footer {
-      margin-top: 4em;
-      font-size: 0.9em;
+      background-color: #f3ecd9;
+      padding: 1em;
       text-align: center;
-      color: #777;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+    footer a {
+      color: #444;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Anglo Law Ledger</h1>
-  <h2>Archiving laws from English-speaking nations daily, created for historical interest and public awareness.</h2>
+  <main>
+    <h1>Anglo Law Ledger</h1>
+    <h2>Archiving laws from English-speaking nations daily, created for historical interest and public awareness.</h2>
 
-  <!-- Law entries will be inserted below this comment by the Python script -->
+    <!-- Law entries will be inserted here by the Python script -->
+  
 
+
+  </main>
   <footer>
     First published 23 June 2025<br>
-    Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> and <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>.
+    All law summaries and archival structure are licensed under
+    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.<br>
+    All website code is licensed under the
+    <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.
   </footer>
-
-  <div class="entry">
-    <h2>23 June 2025</h2>
-    <p><strong>Law:</strong> The Water (Special Measures) Act 2025 (Commencement No. 1) Regulations 2025</p>
-    <p><a href="http://www.legislation.gov.uk/id/uksi/2025/726">View on legislation.gov.uk</a></p>
-  </div>
 </body>
 </html>
