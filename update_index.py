@@ -74,7 +74,7 @@ for entry in reversed(new_entries):
             summary_text = "No explanatory summary available."
         else:
             headers = {
-                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                "Authorization": f"Bearer {API_KEY}",
                 "Content-Type": "application/json",
                 "HTTP-Referer": "https://chat.openai.com/",
                 "X-Title": "AngloLawLedger"
