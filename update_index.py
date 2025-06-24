@@ -70,7 +70,10 @@ for entry in reversed(new_entries):
         paras = note_soup.find_all("p", class_="LegExpNoteText")
         all_text = " ".join(p.text.strip() for p in paras if p.text.strip())
 
+        print("Extracted explanatory note (first 300 chars):", all_text[:300])
+
         if not all_text:
+            print("No explanatory note text found.")
             summary_text = "No explanatory summary available."
         else:
             headers = {
@@ -95,12 +98,22 @@ for entry in reversed(new_entries):
                 ]
             }
 
-            response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, data=json.dumps(data))
+            print("Calling OpenRouter API...")
+            response = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers=headers,
+                data=json.dumps(data)
+            )
+            print("API status:", response.status_code)
+            print("API response:", response.text[:300])
+
             response.raise_for_status()
             ai_result = response.json()
             summary_text = ai_result["choices"][0]["message"]["content"].strip()
+            print("AI summary:", summary_text[:300])
 
     except Exception as e:
+        print(f"Error during API call: {e}")
         summary_text = "No explanatory summary available."
 
     # ---- Step 5: Insert into HTML ----
@@ -114,29 +127,4 @@ for entry in reversed(new_entries):
     else:
         insertion_marker = "</main>"
         insertion_point = html.find(insertion_marker)
-        if insertion_point == -1:
-            print("Error: Could not find insertion point.")
-            continue
-
-    entry_html = f"""
-    <div class="law-entry">
-      <h2>{DATE_DISPLAY}</h2>
-      <p><strong>Law:</strong> {title}</p>
-      <p>{summary_text}</p>
-      <p><a href="{link}">View full legislation</a></p>
-    </div>
-    """
-
-    html = html[:insertion_point] + entry_html + html[insertion_point:]
-
-    with open(INDEX_FILE, "w", encoding="utf-8") as f:
-        f.write(html)
-
-    print("Law added to homepage.")
-
-# ---- Step 6: Update last seen law ID ----
-latest_id = entries[0].id.text.strip()
-with open(LAST_SEEN_FILE, "w") as f:
-    f.write(latest_id)
-
-print("Updated last_law.txt. Script complete.")
+        if insertion
