@@ -13,6 +13,9 @@ DATE_DISPLAY = datetime.today().strftime("%-d %B %Y")
 API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
 
+print("OPENROUTER_API_KEY present in environment:", bool(API_KEY))
+print("API_KEY length:", len(API_KEY))
+
 # ---- Step 1: Fetch feed ----
 print("Fetching UK legislation feed...")
 r = requests.get(FEED_URL)
