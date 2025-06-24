@@ -1,158 +1,141 @@
-import requests
-from bs4 import BeautifulSoup
-from datetime import datetime
-import re
-import json
 import os
+import requests
+import feedparser
+from datetime import datetime
+from bs4 import BeautifulSoup
+import re
 
-# ---- Settings ----
-INDEX_FILE = "index.html"
-LAST_SEEN_FILE = "last_law.txt"
-FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
-DATE_DISPLAY = datetime.today().strftime("%-d %B %Y")
-API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
-MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
+FEED_URL = "https://www.legislation.gov.uk/uksi/latest?dataType=xml"
+INDEX_HTML = "index.html"
+LAST_LAW_FILE = "last_law.txt"
 
-print("OPENROUTER_API_KEY present in environment:", bool(API_KEY))
-print("API_KEY length:", len(API_KEY))
+def fetch_feed():
+    print("Fetching UK legislation feed...")
+    return feedparser.parse(FEED_URL)
 
-# ---- Step 1: Fetch feed ----
-print("Fetching UK legislation feed...")
-r = requests.get(FEED_URL)
-soup = BeautifulSoup(r.content, "lxml-xml")
-entries = soup.find_all("entry")
+def extract_si_number(entry_title):
+    match = re.search(r"\b(\d{4})/(\d+)\b", entry_title)
+    if match:
+        return int(match.group(2))
+    return None
 
-if not entries:
-    print("No entries found.")
-    exit()
+def get_last_processed_si():
+    if os.path.exists(LAST_LAW_FILE):
+        with open(LAST_LAW_FILE, "r") as f:
+            return int(f.read().strip())
+    return 0
 
-# ---- Step 2: Load last seen law ID or create on first run ----
-last_seen_id = None
-if os.path.exists(LAST_SEEN_FILE):
-    with open(LAST_SEEN_FILE, "r") as f:
-        last_seen_id = f.read().strip()
-else:
-    first_id = entries[0].id.text.strip()
-    with open(LAST_SEEN_FILE, "w") as f:
-        f.write(first_id)
-    print("Initialisation complete. Will begin logging new laws from next run.")
-    exit()
+def set_last_processed_si(si_number):
+    with open(LAST_LAW_FILE, "w") as f:
+        f.write(str(si_number))
 
-# ---- Step 3: Filter new laws since last seen ----
-new_entries = []
-for entry in entries:
-    entry_id = entry.id.text.strip()
-    if entry_id == last_seen_id:
-        break
-    new_entries.append(entry)
+def extract_explanatory_note_text(url):
+    print(f"Fetching explanatory note: {url}")
+    try:
+        response = requests.get(url)
+        soup = BeautifulSoup(response.content, "html.parser")
+        text_element = soup.find("div", {"id": "content"})
+        if text_element:
+            text = text_element.get_text(strip=True)
+            return text
+    except Exception as e:
+        print(f"Error fetching explanatory note: {e}")
+    return ""
 
-if not new_entries:
-    print("No new laws to process.")
-    exit()
+def summarise_explanatory_note(text):
+    api_key = os.environ.get("OPENROUTER_API_KEY")
+    print(f"OPENROUTER_API_KEY present in environment: {api_key is not None}")
+    print(f"API_KEY length: {len(api_key) if api_key else 'None'}")
 
-print(f"Processing {len(new_entries)} new law(s)...")
+    if not api_key:
+        print("No API key provided.")
+        return "No explanatory summary available."
 
-# ---- Step 4: Process new laws (oldest first) ----
-for entry in reversed(new_entries):
-    title = entry.title.text.strip()
-    link = entry.id.text.strip()
-    print(f"Processing: {title}")
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
 
-    match = re.search(r"https?://www\.legislation\.gov\.uk/(?:id/)?uksi/(\d{4}/\d+)", link)
-    if not match:
-        print("Skipping – could not extract SI number.")
-        continue
-
-    si_path = match.group(1)
-    note_url = f"https://www.legislation.gov.uk/uksi/{si_path}/note/made"
-    print(f"Fetching explanatory note: {note_url}")
+    payload = {
+        "model": "mistral",
+        "messages": [
+            {"role": "system", "content": "Summarise the explanatory note in one plainspoken paragraph for non-lawyers."},
+            {"role": "user", "content": text}
+        ]
+    }
 
     try:
-        note_response = requests.get(note_url)
-        note_soup = BeautifulSoup(note_response.content, "html.parser")
-        paras = note_soup.find_all("p", class_="LegExpNoteText")
-        all_text = " ".join(p.text.strip() for p in paras if p.text.strip())
-
-        print("Extracted explanatory note (first 300 chars):", all_text[:300])
-
-        if not all_text:
-            print("No explanatory note text found.")
-            summary_text = "No explanatory summary available."
-        else:
-            headers = {
-                "Authorization": f"Bearer {API_KEY}",
-                "Content-Type": "application/json",
-                "HTTP-Referer": "https://chat.openai.com/",
-                "X-Title": "AngloLawLedger"
-            }
-
-            prompt = (
-                "Summarise the following UK legislation explanatory note in one paragraph. "
-                "Use a plainspoken, human tone suitable for the public. Do not include any introductions like "
-                "'Here is a summary' and do not include word counts or metadata. Just return the plain summary.\n\n"
-                f"{all_text}"
-            )
-
-            data = {
-                "model": MODEL_NAME,
-                "messages": [
-                    {"role": "system", "content": "You simplify official UK legal explanatory notes for the public."},
-                    {"role": "user", "content": prompt}
-                ]
-            }
-
-            print("Calling OpenRouter API...")
-            response = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers=headers,
-                data=json.dumps(data)
-            )
-            print("API status:", response.status_code)
-            print("API response:", response.text[:300])
-
-            response.raise_for_status()
-            ai_result = response.json()
-            summary_text = ai_result["choices"][0]["message"]["content"].strip()
-            print("AI summary:", summary_text[:300])
-
+        print("Calling OpenRouter API...")
+        response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload)
+        print(f"API status: {response.status_code}")
+        print(f"API response: {response.text[:200]}")
+        response.raise_for_status()
+        data = response.json()
+        return data["choices"][0]["message"]["content"].strip()
     except Exception as e:
         print(f"Error during API call: {e}")
-        summary_text = "No explanatory summary available."
+        return "No explanatory summary available."
 
-    # ---- Step 5: Insert into HTML ----
-    with open(INDEX_FILE, "r", encoding="utf-8") as f:
-        html = f.read()
+def update_index(new_entry):
+    with open(INDEX_HTML, "r", encoding="utf-8") as f:
+        content = f.read()
 
-    insertion_marker = "<!-- Law entries will be inserted here by the Python script -->"
-    insertion_point = html.find(insertion_marker)
-    if insertion_point != -1:
-        insertion_point += len(insertion_marker)
-    else:
-        insertion_marker = "</main>"
-        insertion_point = html.find(insertion_marker)
-        if insertion_point == -1:
-            print("Error: Could not find insertion point.")
+    insertion = "<!-- NEW LAW ENTRY -->"
+    if insertion not in content:
+        print("ERROR: Insertion point not found in index.html.")
+        return
+
+    updated = content.replace(insertion, new_entry + "\n\n" + insertion)
+    with open(INDEX_HTML, "w", encoding="utf-8") as f:
+        f.write(updated)
+
+def main():
+    feed = fetch_feed()
+    last_si = get_last_processed_si()
+    print(f"Last processed SI number: {last_si}")
+    processed = 0
+
+    for entry in feed.entries:
+        title = entry.title
+        link = entry.link
+        si_number = extract_si_number(title)
+
+        print(f"Processing: {title}")
+
+        if si_number is None:
+            print("Skipping – could not extract SI number.")
+            continue
+        if si_number <= last_si:
             continue
 
-    entry_html = f"""
-    <div class="law-entry">
-      <h2>{DATE_DISPLAY}</h2>
-      <p><strong>Law:</strong> {title}</p>
-      <p>{summary_text}</p>
-      <p><a href="{link}">View full legislation</a></p>
-    </div>
-    """
+        note_url = link + "/note/made"
+        note_text = extract_explanatory_note_text(note_url)
+        summary = summarise_explanatory_note(note_text)
 
-    html = html[:insertion_point] + entry_html + html[insertion_point:]
+        if note_text.strip():
+            print("Extracted explanatory note (first 300 chars):", note_text[:300])
+        else:
+            print("No explanatory note text found.")
 
-    with open(INDEX_FILE, "w", encoding="utf-8") as f:
-        f.write(html)
+        date_str = datetime.today().strftime("%-d %B %Y")
+        new_entry = f"""
+        <div class="law-entry">
+            <h3>{title}</h3>
+            <p><strong>Date Added:</strong> {date_str}</p>
+            <p><strong>Explanatory Summary:</strong> {summary}</p>
+            <p><a href="{link}" target="_blank">View Full Legislation</a></p>
+        </div>
+        """
 
-    print("Law added to homepage.")
+        update_index(new_entry)
+        set_last_processed_si(si_number)
+        print("Law added to homepage.")
+        processed += 1
 
-# ---- Step 6: Update last seen law ID ----
-latest_id = entries[0].id.text.strip()
-with open(LAST_SEEN_FILE, "w") as f:
-    f.write(latest_id)
+        if processed >= 20:
+            break
 
-print("Updated last_law.txt. Script complete.")
+    print("Updated last_law.txt. Script complete.")
+
+if __name__ == "__main__":
+    main()
