@@ -10,11 +10,13 @@ INDEX_FILE = "index.html"
 LAST_SEEN_FILE = "last_law.txt"
 FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
 DATE_DISPLAY = datetime.today().strftime("%-d %B %Y")
-API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
 
-print("OPENROUTER_API_KEY present in environment:", bool(API_KEY))
-print("API_KEY length:", len(API_KEY))
+# Load API key from environment
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+if not OPENROUTER_API_KEY:
+    print("Error: OPENROUTER_API_KEY not found in environment variables.")
+    exit(1)
 
 # ---- Step 1: Fetch feed ----
 print("Fetching UK legislation feed...")
@@ -26,7 +28,7 @@ if not entries:
     print("No entries found.")
     exit()
 
-# ---- Step 2: Load last seen law ID or initialise ----
+# ---- Step 2: Load last seen law ID or create on first run ----
 last_seen_id = None
 if os.path.exists(LAST_SEEN_FILE):
     with open(LAST_SEEN_FILE, "r") as f:
@@ -38,7 +40,7 @@ else:
     print("Initialisation complete. Will begin logging new laws from next run.")
     exit()
 
-# ---- Step 3: Filter new entries ----
+# ---- Step 3: Filter new laws since last seen ----
 new_entries = []
 for entry in entries:
     entry_id = entry.id.text.strip()
@@ -52,7 +54,7 @@ if not new_entries:
 
 print(f"Processing {len(new_entries)} new law(s)...")
 
-# ---- Step 4: Process each new law ----
+# ---- Step 4: Process new laws (oldest first) ----
 for entry in reversed(new_entries):
     title = entry.title.text.strip()
     link = entry.id.text.strip()
@@ -72,13 +74,12 @@ for entry in reversed(new_entries):
         note_soup = BeautifulSoup(note_response.content, "html.parser")
         paras = note_soup.find_all("p", class_="LegExpNoteText")
         all_text = " ".join(p.text.strip() for p in paras if p.text.strip())
-        print("Extracted explanatory note (first 300 chars):", all_text[:300])
 
         if not all_text:
             summary_text = "No explanatory summary available."
         else:
             headers = {
-                "Authorization": f"Bearer {API_KEY}",
+                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
                 "Content-Type": "application/json",
                 "HTTP-Referer": "https://chat.openai.com/",
                 "X-Title": "AngloLawLedger"
@@ -99,20 +100,15 @@ for entry in reversed(new_entries):
                 ]
             }
 
-            print("Calling OpenRouter API...")
             response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, data=json.dumps(data))
-            print("API status:", response.status_code)
-            print("API response:", response.text[:100])
             response.raise_for_status()
-
             ai_result = response.json()
             summary_text = ai_result["choices"][0]["message"]["content"].strip()
 
     except Exception as e:
-        print("Error during API call:", str(e))
         summary_text = "No explanatory summary available."
 
-    # ---- Step 5: Update HTML ----
+    # ---- Step 5: Insert into HTML ----
     with open(INDEX_FILE, "r", encoding="utf-8") as f:
         html = f.read()
 
@@ -143,7 +139,7 @@ for entry in reversed(new_entries):
 
     print("Law added to homepage.")
 
-# ---- Step 6: Save latest ID ----
+# ---- Step 6: Update last seen law ID ----
 latest_id = entries[0].id.text.strip()
 with open(LAST_SEEN_FILE, "w") as f:
     f.write(latest_id)
