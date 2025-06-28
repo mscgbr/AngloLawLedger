@@ -1,146 +1,106 @@
-import requests
-from bs4 import BeautifulSoup
-from datetime import datetime
-import os
-import json
-import re
-
-# --- Settings ---
-FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
-COUNTRY = "uk"
-BASE_DIR = f"laws/{COUNTRY}"
-LATEST_GLOBAL = "laws/latest.json"
-LAST_SEEN_FILE = "last_law.txt"
-MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
-
-# --- Ensure folders exist ---
-os.makedirs(BASE_DIR, exist_ok=True)
-os.makedirs("laws", exist_ok=True)
-
-# --- API Key ---
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-if not OPENROUTER_API_KEY:
-    print("Error: OPENROUTER_API_KEY not found.")
-    exit(1)
-
-# --- Load feed ---
-r = requests.get(FEED_URL)
-soup = BeautifulSoup(r.content, "lxml-xml")
-entries = soup.find_all("entry")
-if not entries:
-    print("No entries found.")
-    exit()
-
-# --- Last seen ID ---
-if os.path.exists(LAST_SEEN_FILE):
-    with open(LAST_SEEN_FILE) as f:
-        last_seen_id = f.read().strip()
-else:
-    with open(LAST_SEEN_FILE, "w") as f:
-        f.write(entries[0].id.text.strip())
-    print("Initialised. No laws processed.")
-    exit()
-
-# --- Filter new entries ---
-new_entries = []
-for entry in entries:
-    eid = entry.id.text.strip()
-    if eid == last_seen_id:
-        break
-    new_entries.append(entry)
-
-if not new_entries:
-    print("No new laws.")
-    exit()
-
-# --- Robust JSON loader ---
-def load_json(path):
-    if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
-            try:
-                return json.load(f)
-            except json.JSONDecodeError:
-                print(f"Warning: Failed to parse {path}. Returning empty list.")
-                return []
-    return []
-
-def save_json(path, data):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-# --- Load global latest list ---
-latest_global = load_json(LATEST_GLOBAL)
-
-# --- Process entries ---
-for entry in reversed(new_entries):
-    title = entry.title.text.strip()
-    link = entry.id.text.strip()
-    law_date = datetime.utcnow().strftime("%-d %B %Y")
-    year = datetime.utcnow().strftime("%Y")
-
-    match = re.search(r"/uksi/(\d{4}/\d+)", link)
-    if not match:
-        continue
-
-    si_path = match.group(1)
-    note_url = f"https://www.legislation.gov.uk/uksi/{si_path}/note/made"
-
-    try:
-        note_response = requests.get(note_url)
-        soup = BeautifulSoup(note_response.content, "html.parser")
-        paras = soup.find_all("p", class_="LegExpNoteText")
-        raw_text = " ".join(p.text.strip() for p in paras if p.text.strip())
-
-        if not raw_text:
-            summary = "No explanatory summary available."
-        else:
-            headers = {
-                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-                "Content-Type": "application/json",
-                "HTTP-Referer": "https://chat.openai.com/",
-                "X-Title": "AngloLawLedger"
-            }
-            prompt = (
-                "Summarise the following UK legislation explanatory note in one paragraph. "
-                "Use a plainspoken, human tone. No introductions or word counts.\n\n" + raw_text
-            )
-            payload = {
-                "model": MODEL_NAME,
-                "messages": [
-                    {"role": "system", "content": "You simplify official UK legal explanatory notes for the public."},
-                    {"role": "user", "content": prompt}
-                ]
-            }
-            ai_resp = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, data=json.dumps(payload))
-            summary = ai_resp.json()["choices"][0]["message"]["content"].strip()
-    except Exception as e:
-        print(f"Summary failed: {e}")
-        summary = "No explanatory summary available."
-
-    law_entry = {
-        "date": law_date,
-        "title": title,
-        "link": link,
-        "summary": summary,
-        "country": "United Kingdom"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anglo Law Ledger</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script defer src="js/main.js"></script>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: #fdf6e3;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+    main {
+      flex: 1;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 0.1em;
+    }
+    h2 {
+      font-size: 1.2em;
+      text-align: center;
+      font-weight: normal;
+      color: #555;
+      margin-bottom: 2em;
+    }
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1em;
+      margin-bottom: 2em;
+    }
+    .law-entry {
+      margin-bottom: 2em;
+    }
+    .law-entry h3 {
+      margin: 0.5em 0 0.2em;
+    }
+    .law-entry p {
+      margin: 0.2em 0;
+    }
+    footer {
+      background-color: #f3ecd9;
+      padding: 1em;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+    footer a {
+      color: #444;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+      <img src="logolarge.png" alt="Logo" style="height: 3.2em; margin-right: 16px;" />
+      <h1 style="margin: 0; font-size: 2.2em;">Anglo Law Ledger</h1>
+    </div>
+    <h2>Daily law summaries from English-speaking nations, archived for public and historical interest</h2>
 
-    # --- Append to year file ---
-    year_file = f"{BASE_DIR}/{year}.json"
-    year_data = load_json(year_file)
-    year_data.insert(0, law_entry)
-    save_json(year_file, year_data)
+    <div id="controls">
+      <label>
+        Country:
+        <select id="countrySelect">
+  			<option value="all" selected>All Countries</option>
+  			<option value="united_kingdom">United Kingdom</option>
+  			<option value="united_states">United States</option>
+  			<option value="canada">Canada</option>
+  			<option value="australia">Australia</option>
+  			<option value="new_zealand">New Zealand</option>
+  			<option value="singapore">Singapore</option>
+  			<option value="ireland">Ireland</option>
+		</select>
+      </label>
+      <label>
+        Search:
+        <input type="text" id="searchInput" style="width: 100%;" placeholder="e.g. crypto, 23 June">
+      </label>
+    </div>
 
-    # --- Update global latest list (capped to 50) ---
-    latest_global.insert(0, law_entry)
-    latest_global = latest_global[:50]
+    <div id="lawContainer"></div>
+  </main>
 
-    print(f"Added: {title}")
-
-# --- Save global list and last seen ID ---
-save_json(LATEST_GLOBAL, latest_global)
-
-with open(LAST_SEEN_FILE, "w") as f:
-    f.write(entries[0].id.text.strip())
-
-print("Done.")
+  <footer>
+    First published 23 June 2025<br>
+    All law summaries and archival structure are licensed under
+    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.<br>
+    All website code is licensed under the
+    <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.
+  </footer>
+</body>
+</html>
