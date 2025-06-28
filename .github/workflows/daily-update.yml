@@ -2,8 +2,8 @@ name: Daily Law Update
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
-  workflow_dispatch:
+    - cron: '0 * * * *'  # Runs every hour on the hour, UTC
+  workflow_dispatch:       # Allows manual trigger
 
 jobs:
   build:
@@ -21,21 +21,19 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: pip install requests beautifulsoup4 lxml
 
-      - name: Run update script
+      - name: Run Python script
         run: python update_index.py
 
-      - name: Commit updated law data
+      - name: Commit updated files if changed
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add laws/ last_law.txt
-          echo "Files staged for commit:"
-          git diff --cached --name-only
+          git add index.html last_law.txt laws/ js/
           if ! git diff --quiet --cached; then
-            git commit -m "Update latest laws JSON"
+            git commit -m "Auto-update with latest law entry"
             git push
           else
             echo "No changes to commit."
