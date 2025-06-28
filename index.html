@@ -1,221 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Anglo Law Ledger</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style>
-    body {
-      font-family: "Times New Roman", Times, serif;
-      background-color: #fdf6e3;
-      color: #222;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    main {
-      flex: 1;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h1 {
-      font-size: 2.5em;
-      text-align: center;
-      margin-bottom: 0.1em;
-    }
-    h2 {
-      font-size: 1.2em;
-      text-align: center;
-      font-weight: normal;
-      color: #555;
-      margin-bottom: 2em;
-    }
-    .law-entry {
-      margin-bottom: 1.5em;
-    }
-    footer {
-      background-color: #f3ecd9;
-      padding: 1em;
-      text-align: center;
-      font-size: 0.9em;
-      color: #555;
-      border-top: 1px solid #ccc;
-    }
-    footer a {
-      color: #444;
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
-  		<img src="logolarge.png" alt="Logo" style="height: 3.2em; margin-right: 16px;" />
-  		<h1 style="margin: 0; font-size: 2.2em;">Anglo Law Ledger</h1>
-	  </div>   
-    <h2>Daily law summaries from English-speaking nations, archived for public and historical interest</h2>
+import requests
+from bs4 import BeautifulSoup
+from datetime import datetime
+import os
+import json
+import re
 
-    <!-- Law entries will be inserted here by the Python script -->
-    <div class="law-entry">
-      <h2>27 June 2025</h2>
-      <p><strong>Law:</strong> The Scotland Act 1998 (Increase of Borrowing Limits) Order 2025</p>
-      <p>This law update increases how much money the Scottish government can borrow for day-to-day spending (from about £1.78 billion to £1.83 billion) and for long-term investments like infrastructure (from about £3.05 billion to £3.14 billion). It replaces the previous borrowing limits set earlier in 2024. The government says these changes won’t significantly affect public services or charities, so no detailed impact report was needed.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/759">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>26 June 2025</h2>
-      <p><strong>Law:</strong> The Criminal and Civil Legal Aid (Amendment) Regulations 2025</p>
-      <p>This update simplifies the legal aid process by removing the requirement for people to make contributions (payments) for civil or criminal legal aid cases. It also cuts unnecessary administrative tasks, like sending duplicate paperwork to providers or the Legal Aid Agency, making the system more efficient. For civil cases, if someone is initially granted emergency legal aid but later found ineligible, their aid will now be withdrawn rather than revoked. In criminal cases, providers no longer need to double-check financial eligibility if someone qualifies for aid in magistrates' court and later moves to Crown Court for the same case. These changes apply to both new and ongoing cases, waiving any unpaid contributions from before the rules took effect—unless someone tries to reapply for the same case just to avoid paying. Some determinations made after June 2025 will also be backdated if delays occurred. The government decided a full impact assessment wasn’t needed because these are minor operational tweaks.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/750">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>26 June 2025</h2>
-      <p><strong>Law:</strong> The Local Authorities (Referendums and Election of Mayors) (England) (Amendment) Regulations 2025</p>
-      <p>This update changes the rules about how local councils handle petitions pushing for a referendum on switching to a mayor-led system. If a petition is submitted between July 2025 and the elections in 2026, the referendum must be held within six months after those elections. If voters approve a mayor, the first mayoral election would then happen at the next scheduled local election after that. Councils can also choose to adopt a mayor without a referendum. These changes tweak existing regulations to adjust timing around the 2025-26 election period. The government doesn’t expect this to have a big impact on businesses, charities, or public services.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/746">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Customs (Miscellaneous Amendments) Regulations 2025</p>
-      <p>This legislation tweaks several customs and postal rules to smooth out processes for importing and exporting goods. Key changes include: introducing a £1,000 penalty for refusing to move goods for customs checks, letting certain foreign postal operators use simpler customs forms, and clarifying when oral or conduct-based customs declarations can be made for temporary imports (like artwork). It also adjusts how goods are valued for customs duty, especially for defective or short-delivered items, and simplifies transit procedures for air and rail shipments. Postal operators get new authorisation rules, and temporary import periods for artworks can now last up to 48 months (with possible extensions). Some paper-based transit procedures are scrapped, and transitional arrangements let foreign postal operators keep working while awaiting formal approval. Most details will be in publicly available HMRC notices.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/745">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Reporting Cryptoasset Service Providers (Due Diligence and Reporting Requirements) Regulations 2025</p>
-      <p>These new rules require UK-based crypto platforms and services that exchange crypto for regular money (or trade between different cryptos) to check their users' identities and report certain customer information to HMRC every year. They must also tell users that their details will be shared with tax authorities and keep records for five years. Users must provide confirmation of their details when asked. If crypto businesses don’t follow these rules, they could face penalties unless they have a good excuse. HMRC can ask for information if they suspect a business is covered by these rules, and businesses must register with HMRC if they aren’t already reporting elsewhere. There are also rules about appealing penalties and measures to stop people trying to avoid these requirements.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/744">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The International Tax Compliance (Amendment) Regulations 2025</p>
-      <p>This update changes UK tax reporting rules to align with new international standards, particularly for crypto assets and financial data sharing. Starting in 2026, financial institutions must follow updated reporting requirements, with some deadlines extended for certain account types. Banks and other financial bodies must register with HMRC and follow stricter rules when gathering customer tax information. The rules also introduce penalties for failing to provide required tax details or register properly, while removing outdated requirements. These changes aim to improve transparency and crack down on tax avoidance by aligning with global agreements.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/740">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Child Trust Funds (Amendment) Regulations 2025</p>
-      <p>These rules update the Child Trust Fund rules to allow certain investments (specifically UCITS fund units or shares) to qualify as valid investments until 31 December 2026. After that date, they'll no longer qualify. The change takes effect from 1 October 2024, and more details will be available in a government tax note online.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/738">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Individual Savings Account (Amendment) Regulations 2025</p>
-      <p>These rules update ISA regulations to clarify a few key points: they define what a "long-term asset fund" is, set conditions for opening an adult ISA (requiring National Insurance info and ensuring eligibility rules are met), and specify that withdrawn money can only be replaced back into the same ISA account. Investments in certain funds remain valid until 2026, after which rules change. Long-term asset funds are now included as eligible investments for innovative finance ISAs. More details will be available in a government tax note online.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/733">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Victims and Prisoners Act 2024 (Commencement No. 7) Regulations 2025</p>
-      <p>Starting June 25, 2025, victims of violent, sexual, or terrorism offenders who are held in psychiatric hospitals under mental health orders will get new rights to share how the crime affected them. They can submit a statement to the mental health tribunal and request to read it at a hearing, unless there’s a good reason to refuse them. The tribunal can consider the statement when deciding release conditions—but not when deciding if the offender should be discharged. Separately, the law also introduces a permanent advocate for victims of major incidents, like disasters, to represent their interests and advise the government. The advocate will report yearly and can also provide updates on specific incidents when needed. These changes were already set out in the Victims and Prisoners Act 2024, and the government doesn’t expect them to cause major impacts for businesses or public services.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/731">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Air Navigation (Restriction of Flying) (Warmsworth, Doncaster) (Emergency) (Revocation) Regulations 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/730">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The M6 Toll Motorway (M6 Junction 3a to M6 Junction 11a) and M42 Motorway (Temporary Prohibition of Traffic) Order 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/729">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The National Health Service (General Medical Services Contracts and Personal Medical Services Agreements) (Amendment) Regulations 2025</p>
-      <p>These changes update the rules for how general medical services (GMS) and personal medical services (PMS) contracts work in England’s NHS. They tweak existing regulations to cover services provided under these contracts and clarify the requirements when partnerships (like GP practices run by multiple doctors) make changes to who’s involved. Essentially, it’s a technical update to keep the system running smoothly.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/727">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Water (Special Measures) Act 2025 (Commencement No. 1) Regulations 2025</p>
-      <p>Starting 23rd June 2025, water companies in England must create and publish yearly plans to reduce pollution incidents, along with progress reports showing how they’re putting those plans into action. These rules also require sewerage companies to include nature-based solutions in their drainage and sewage management plans. Companies that don’t follow these rules could face penalties. The government has already assessed the broader impact of these changes under the 2025 Act, but these specific regulations won’t directly affect businesses or the public sector. More details are available from the Department for Environment, Food and Rural Affairs.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/726">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Air Navigation (Restriction of Flying) (Bristol Balloon Fiesta) Regulations 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/725">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Air Navigation (Restriction of Flying) (Duxford) (No. 2) (Amendment) Regulations 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/724">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Air Navigation (Restriction of Flying) (Warmsworth, Doncaster) (Emergency) Regulations 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/723">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Investigatory Powers (Amendment) Act 2024 (Commencement No. 3) Regulations 2025</p>
-      <p>This set of rules puts the final two parts of the 2024 Investigatory Powers Amendment Act into effect. One part deals with the Secretary of State’s power to review certain notices, and the other involves notifying telecom companies about upcoming changes that might affect them. The government believes these changes won’t have a major impact on businesses or organizations.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/722">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Air Navigation (Restriction of Flying) (Liverpool) (No. 4) Regulations 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/721">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Air Navigation (Restriction of Flying) (Crickhowell) Regulations 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/720">View full legislation</a></p>
-    </div>
-    
-    <div class="law-entry">
-      <h2>25 June 2025</h2>
-      <p><strong>Law:</strong> The Air Navigation (Restriction of Flying) (Reading) Regulations 2025</p>
-      <p>No explanatory summary available.</p>
-      <p><a href="http://www.legislation.gov.uk/id/uksi/2025/719">View full legislation</a></p>
-    </div>
-    
-   
-    
- 
+# --- Settings ---
+FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
+COUNTRY = "uk"
+BASE_DIR = f"laws/{COUNTRY}"
+LATEST_GLOBAL = "laws/latest.json"
+LAST_SEEN_FILE = "last_law.txt"
+MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
 
-   
-    
-   
-  
+# --- Ensure folders exist ---
+os.makedirs(BASE_DIR, exist_ok=True)
+os.makedirs("laws", exist_ok=True)
 
+# --- API Key ---
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+if not OPENROUTER_API_KEY:
+    print("Error: OPENROUTER_API_KEY not found.")
+    exit(1)
 
-  </main>
-  <footer>
-    First published 23 June 2025<br>
-    All law summaries and archival structure are licensed under
-    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.<br>
-    All website code is licensed under the
-    <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.
-  </footer>
-</body>
-</html>
+# --- Load feed ---
+r = requests.get(FEED_URL)
+soup = BeautifulSoup(r.content, "lxml-xml")
+entries = soup.find_all("entry")
+if not entries:
+    print("No entries found.")
+    exit()
+
+# --- Last seen ID ---
+if os.path.exists(LAST_SEEN_FILE):
+    with open(LAST_SEEN_FILE) as f:
+        last_seen_id = f.read().strip()
+else:
+    with open(LAST_SEEN_FILE, "w") as f:
+        f.write(entries[0].id.text.strip())
+    print("Initialised. No laws processed.")
+    exit()
+
+# --- Filter new entries ---
+new_entries = []
+for entry in entries:
+    eid = entry.id.text.strip()
+    if eid == last_seen_id:
+        break
+    new_entries.append(entry)
+
+if not new_entries:
+    print("No new laws.")
+    exit()
+
+# --- Robust JSON loader ---
+def load_json(path):
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                print(f"Warning: Failed to parse {path}. Returning empty list.")
+                return []
+    return []
+
+def save_json(path, data):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+# --- Load global latest list ---
+latest_global = load_json(LATEST_GLOBAL)
+
+# --- Process entries ---
+for entry in reversed(new_entries):
+    title = entry.title.text.strip()
+    link = entry.id.text.strip()
+    law_date = datetime.utcnow().strftime("%-d %B %Y")
+    year = datetime.utcnow().strftime("%Y")
+
+    match = re.search(r"/uksi/(\d{4}/\d+)", link)
+    if not match:
+        continue
+
+    si_path = match.group(1)
+    note_url = f"https://www.legislation.gov.uk/uksi/{si_path}/note/made"
+
+    try:
+        note_response = requests.get(note_url)
+        soup = BeautifulSoup(note_response.content, "html.parser")
+        paras = soup.find_all("p", class_="LegExpNoteText")
+        raw_text = " ".join(p.text.strip() for p in paras if p.text.strip())
+
+        if not raw_text:
+            summary = "No explanatory summary available."
+        else:
+            headers = {
+                "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://chat.openai.com/",
+                "X-Title": "AngloLawLedger"
+            }
+            prompt = (
+                "Summarise the following UK legislation explanatory note in one paragraph. "
+                "Use a plainspoken, human tone. No introductions or word counts.\n\n" + raw_text
+            )
+            payload = {
+                "model": MODEL_NAME,
+                "messages": [
+                    {"role": "system", "content": "You simplify official UK legal explanatory notes for the public."},
+                    {"role": "user", "content": prompt}
+                ]
+            }
+            ai_resp = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, data=json.dumps(payload))
+            summary = ai_resp.json()["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        print(f"Summary failed: {e}")
+        summary = "No explanatory summary available."
+
+    law_entry = {
+        "date": law_date,
+        "title": title,
+        "link": link,
+        "summary": summary,
+        "country": "United Kingdom"
+    }
+
+    # --- Append to year file ---
+    year_file = f"{BASE_DIR}/{year}.json"
+    year_data = load_json(year_file)
+    year_data.insert(0, law_entry)
+    save_json(year_file, year_data)
+
+    # --- Update global latest list (capped to 50) ---
+    latest_global.insert(0, law_entry)
+    latest_global = latest_global[:50]
+
+    print(f"Added: {title}")
+
+# --- Save global list and last seen ID ---
+save_json(LATEST_GLOBAL, latest_global)
+
+with open(LAST_SEEN_FILE, "w") as f:
+    f.write(entries[0].id.text.strip())
+
+print("Done.")
