@@ -1,82 +1,98 @@
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
-import re
-import json
 import os
+import json
+import re
 
-# ---- Settings ----
-INDEX_FILE = "index.html"
-LAST_SEEN_FILE = "last_law.txt"
+# --- Settings ---
 FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
-DATE_DISPLAY = datetime.today().strftime("%-d %B %Y")
+COUNTRY = "uk"
+BASE_DIR = f"laws/{COUNTRY}"
+LATEST_GLOBAL = "laws/latest.json"
+LAST_SEEN_FILE = "last_law.txt"
 MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
 
-# Load API key from environment
+# --- Ensure folders exist ---
+os.makedirs(BASE_DIR, exist_ok=True)
+os.makedirs("laws", exist_ok=True)
+
+# --- API Key ---
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 if not OPENROUTER_API_KEY:
-    print("Error: OPENROUTER_API_KEY not found in environment variables.")
+    print("Error: OPENROUTER_API_KEY not found.")
     exit(1)
 
-# ---- Step 1: Fetch feed ----
-print("Fetching UK legislation feed...")
+# --- Load feed ---
 r = requests.get(FEED_URL)
 soup = BeautifulSoup(r.content, "lxml-xml")
 entries = soup.find_all("entry")
-
 if not entries:
     print("No entries found.")
     exit()
 
-# ---- Step 2: Load last seen law ID or create on first run ----
-last_seen_id = None
+# --- Last seen ID ---
 if os.path.exists(LAST_SEEN_FILE):
-    with open(LAST_SEEN_FILE, "r") as f:
+    with open(LAST_SEEN_FILE) as f:
         last_seen_id = f.read().strip()
 else:
-    first_id = entries[0].id.text.strip()
     with open(LAST_SEEN_FILE, "w") as f:
-        f.write(first_id)
-    print("Initialisation complete. Will begin logging new laws from next run.")
+        f.write(entries[0].id.text.strip())
+    print("Initialised. No laws processed.")
     exit()
 
-# ---- Step 3: Filter new laws since last seen ----
+# --- Filter new entries ---
 new_entries = []
 for entry in entries:
-    entry_id = entry.id.text.strip()
-    if entry_id == last_seen_id:
+    eid = entry.id.text.strip()
+    if eid == last_seen_id:
         break
     new_entries.append(entry)
 
 if not new_entries:
-    print("No new laws to process.")
+    print("No new laws.")
     exit()
 
-print(f"Processing {len(new_entries)} new law(s)...")
+# --- Robust JSON loader ---
+def load_json(path):
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                print(f"Warning: Failed to parse {path}. Returning empty list.")
+                return []
+    return []
 
-# ---- Step 4: Process new laws (oldest first) ----
+def save_json(path, data):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+# --- Load global latest list ---
+latest_global = load_json(LATEST_GLOBAL)
+
+# --- Process entries ---
 for entry in reversed(new_entries):
     title = entry.title.text.strip()
     link = entry.id.text.strip()
-    print(f"Processing: {title}")
+    law_date = datetime.utcnow().strftime("%-d %B %Y")
+    year = datetime.utcnow().strftime("%Y")
 
-    match = re.search(r"https?://www\.legislation\.gov\.uk/(?:id/)?uksi/(\d{4}/\d+)", link)
+    match = re.search(r"/uksi/(\d{4}/\d+)", link)
     if not match:
-        print("Skipping – could not extract SI number.")
         continue
 
     si_path = match.group(1)
     note_url = f"https://www.legislation.gov.uk/uksi/{si_path}/note/made"
-    print(f"Fetching explanatory note: {note_url}")
 
     try:
         note_response = requests.get(note_url)
-        note_soup = BeautifulSoup(note_response.content, "html.parser")
-        paras = note_soup.find_all("p", class_="LegExpNoteText")
-        all_text = " ".join(p.text.strip() for p in paras if p.text.strip())
+        soup = BeautifulSoup(note_response.content, "html.parser")
+        paras = soup.find_all("p", class_="LegExpNoteText")
+        raw_text = " ".join(p.text.strip() for p in paras if p.text.strip())
 
-        if not all_text:
-            summary_text = "No explanatory summary available."
+        if not raw_text:
+            summary = "No explanatory summary available."
         else:
             headers = {
                 "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -84,64 +100,47 @@ for entry in reversed(new_entries):
                 "HTTP-Referer": "https://chat.openai.com/",
                 "X-Title": "AngloLawLedger"
             }
-
             prompt = (
                 "Summarise the following UK legislation explanatory note in one paragraph. "
-                "Use a plainspoken, human tone suitable for the public. Do not include any introductions like "
-                "'Here is a summary' and do not include word counts or metadata. Just return the plain summary.\n\n"
-                f"{all_text}"
+                "Use a plainspoken, human tone. No introductions or word counts.\n\n" + raw_text
             )
-
-            data = {
+            payload = {
                 "model": MODEL_NAME,
                 "messages": [
                     {"role": "system", "content": "You simplify official UK legal explanatory notes for the public."},
                     {"role": "user", "content": prompt}
                 ]
             }
-
-            response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, data=json.dumps(data))
-            response.raise_for_status()
-            ai_result = response.json()
-            summary_text = ai_result["choices"][0]["message"]["content"].strip()
-
+            ai_resp = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, data=json.dumps(payload))
+            summary = ai_resp.json()["choices"][0]["message"]["content"].strip()
     except Exception as e:
-        summary_text = "No explanatory summary available."
+        print(f"Summary failed: {e}")
+        summary = "No explanatory summary available."
 
-    # ---- Step 5: Insert into HTML ----
-    with open(INDEX_FILE, "r", encoding="utf-8") as f:
-        html = f.read()
+    law_entry = {
+        "date": law_date,
+        "title": title,
+        "link": link,
+        "summary": summary,
+        "country": "United Kingdom"
+    }
 
-    insertion_marker = "<!-- Law entries will be inserted here by the Python script -->"
-    insertion_point = html.find(insertion_marker)
-    if insertion_point != -1:
-        insertion_point += len(insertion_marker)
-    else:
-        insertion_marker = "</main>"
-        insertion_point = html.find(insertion_marker)
-        if insertion_point == -1:
-            print("Error: Could not find insertion point.")
-            continue
+    # --- Append to year file ---
+    year_file = f"{BASE_DIR}/{year}.json"
+    year_data = load_json(year_file)
+    year_data.insert(0, law_entry)
+    save_json(year_file, year_data)
 
-    entry_html = f"""
-    <div class="law-entry">
-      <h2>{DATE_DISPLAY}</h2>
-      <p><strong>Law:</strong> {title}</p>
-      <p>{summary_text}</p>
-      <p><a href="{link}">View full legislation</a></p>
-    </div>
-    """
+    # --- Update global latest list (capped to 50) ---
+    latest_global.insert(0, law_entry)
+    latest_global = latest_global[:50]
 
-    html = html[:insertion_point] + entry_html + html[insertion_point:]
+    print(f"Added: {title}")
 
-    with open(INDEX_FILE, "w", encoding="utf-8") as f:
-        f.write(html)
+# --- Save global list and last seen ID ---
+save_json(LATEST_GLOBAL, latest_global)
 
-    print("Law added to homepage.")
-
-# ---- Step 6: Update last seen law ID ----
-latest_id = entries[0].id.text.strip()
 with open(LAST_SEEN_FILE, "w") as f:
-    f.write(latest_id)
+    f.write(entries[0].id.text.strip())
 
-print("Updated last_law.txt. Script complete.")
+print("Done.")
