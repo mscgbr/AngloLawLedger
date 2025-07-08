@@ -10,7 +10,6 @@ FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
 COUNTRY = "uk"
 BASE_DIR = f"laws/{COUNTRY}"
 LATEST_GLOBAL = "laws/latest.json"
-LAST_SEEN_FILE = "last_law.txt"
 MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
 
 # --- Ensure folders exist ---
@@ -18,7 +17,7 @@ os.makedirs(BASE_DIR, exist_ok=True)
 os.makedirs("laws", exist_ok=True)
 
 # --- API Key ---
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_KEY = "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"
 if not OPENROUTER_API_KEY:
     print("Error: OPENROUTER_API_KEY not found.")
     exit(1)
@@ -31,27 +30,25 @@ if not entries:
     print("No entries found.")
     exit()
 
-# --- Last seen ID ---
-if os.path.exists(LAST_SEEN_FILE):
-    with open(LAST_SEEN_FILE) as f:
-        last_seen_id = f.read().strip()
-else:
-    with open(LAST_SEEN_FILE, "w") as f:
-        f.write(entries[0].id.text.strip())
-    print("Initialised. No laws processed.")
-    exit()
+# --- Load existing titles ---
+def collect_existing_titles(base_dir="laws"):
+    titles = set()
+    for dirpath, _, filenames in os.walk(base_dir):
+        for filename in filenames:
+            if filename.endswith(".json"):
+                filepath = os.path.join(dirpath, filename)
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        if isinstance(data, list):
+                            for item in data:
+                                if "title" in item:
+                                    titles.add(item["title"].strip())
+                except Exception:
+                    continue
+    return titles
 
-# --- Filter new entries ---
-new_entries = []
-for entry in entries:
-    eid = entry.id.text.strip()
-    if eid == last_seen_id:
-        break
-    new_entries.append(entry)
-
-if not new_entries:
-    print("No new laws.")
-    exit()
+existing_titles = collect_existing_titles()
 
 # --- Robust JSON loader ---
 def load_json(path):
@@ -72,8 +69,11 @@ def save_json(path, data):
 latest_global = load_json(LATEST_GLOBAL)
 
 # --- Process entries ---
-for entry in reversed(new_entries):
+for entry in reversed(entries):
     title = entry.title.text.strip()
+    if title in existing_titles:
+        continue  # Skip duplicate
+
     link = entry.id.text.strip()
     law_date = datetime.utcnow().strftime("%-d %B %Y")
     year = datetime.utcnow().strftime("%Y")
@@ -137,10 +137,7 @@ for entry in reversed(new_entries):
 
     print(f"Added: {title}")
 
-# --- Save global list and last seen ID ---
+# --- Save global list ---
 save_json(LATEST_GLOBAL, latest_global)
-
-with open(LAST_SEEN_FILE, "w") as f:
-    f.write(entries[0].id.text.strip())
 
 print("Done.")
