@@ -10,14 +10,14 @@ FEED_URL = "https://www.legislation.gov.uk/uksi/data.feed"
 COUNTRY = "uk"
 BASE_DIR = f"laws/{COUNTRY}"
 LATEST_GLOBAL = "laws/latest.json"
-MODEL_NAME = "deepseek/deepseek-chat-v3-0324:free"
+MODEL_NAME = "qwen/qwen3-235b-a22b:free"
 
 # --- Ensure folders exist ---
 os.makedirs(BASE_DIR, exist_ok=True)
 os.makedirs("laws", exist_ok=True)
 
 # --- API Key ---
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 if not OPENROUTER_API_KEY:
     print("Error: OPENROUTER_API_KEY not found.")
     exit(1)
@@ -101,13 +101,22 @@ for entry in reversed(entries):
                 "X-Title": "AngloLawLedger"
             }
             prompt = (
-                "Summarise the following UK legislation explanatory note in one paragraph. "
-                "Use a plainspoken, human tone. No introductions or word counts.\n\n" + raw_text
+                "Rewrite the following explanatory note from UK legislation into a single, clear paragraph. "
+                "Use plain English with a tone that's confident, slightly engaging, and publicly accessible. "
+                "Make the summary easy to understand, and include—if possible—any likely real-world outcomes this law might affect, "
+                "such as changes to people's lives, businesses, government policy, the economy, or the environment. "
+                "Avoid legal jargon and don't include footnotes, intros, or disclaimers.\n\n" + raw_text
             )
+
             payload = {
                 "model": MODEL_NAME,
                 "messages": [
-                    {"role": "system", "content": "You simplify official UK legal explanatory notes for the public."},
+                    {"role": "system", "content": (
+                        "You are an expert at converting UK legal explanatory notes into clear, engaging summaries for the general public. "
+                        "You explain complex legislation in plain English, focusing on what's changing and what it could mean for real people. "
+                        "You make it easy to understand, avoid technical jargon, and highlight any likely impacts where appropriate—on individuals, businesses, the economy, or the environment. "
+                        "Your tone is professional, slightly energetic, and never dry."
+                    )},
                     {"role": "user", "content": prompt}
                 ]
             }
