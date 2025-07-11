@@ -1,6 +1,20 @@
 [
   {
     "date": "11 July 2025",
+    "title": "The Football Spectators (Seating) (Amendment) (England) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/829",
+    "summary": "The Football Spectators (Seating) Order 2022 requires Premier League and Championship stadiums in England and Wales to follow strict seating rules during designated matches to ensure safety, banning standing areas unless licensed. This newer law updates those rules by reflecting Everton Football Club’s recent move to a new stadium, ensuring the same safety standards apply to their matches in the fresh venue. Since the update is simply about redirecting the existing requirements to the club’s new location, it’s not expected to impose new costs or major changes for fans, businesses, or authorities. While the tweak itself is technical, it keeps pressure on clubs to maintain safe conditions for spectators—no standing crowds in all-seater stadiums—potentially shaping how fans experience games, though in Everton’s case, it’s more of a bureaucratic handover than a game-changer.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "11 July 2025",
+    "title": "The Safety of Sports Grounds (Designation) (Amendment) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/828",
+    "summary": "Here’s a clear, engaging summary of the legislation in plain English:  \nThis law streamlines safety requirements for sports grounds by updating which venues need official safety certificates to host large crowds. Specifically, football stadiums in England and Wales with seating for over 5,000 spectators—and tied to top-tier leagues like the Football League or Premier League—are now included, while other sports grounds only require certification if they hold more than 10,000. The update adjusts existing rules (from 2015) to reflect recent changes, such as shifts in league memberships or stadium capacities, but the government doesn’t expect it to create significant new costs or burdens for local councils, businesses, or sports teams. However, venues near these thresholds may need to reassess to ensure safe crowd management, particularly if construction dates or league status have changed. The aim is to maintain safety standards without disrupting existing operations or stifling smaller clubs and events.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "11 July 2025",
     "title": "The Sheep Carcase (Classification and Price Reporting) (England) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/837",
     "summary": "<think><think>\nOkay, let's tackle this. So the user wants me to convert an explanatory note about UK regulations under the Agriculture Act 2020 into a clear, engaging paragraph. First, I need to understand the content. The regulations require larger approved slaughterhouses to classify and report prices for sheep carcasses.\n\nHmm, key points: Which slaughterhouses are covered? Regulation 3 defines them. They have to notify the Secretary of State (Regulation 4). Classification is during weighing, after assigning a kill number and proper presentation. Scheduling 1 details the classification standards. Then, labeling the carcass (Regulation 9) and recording lots of data (Regulations 11, 12). They must share supplier info (Reg 13). Part 3 is about licensing and authorizations. Part 4 allows automated classification methods. Part 5 deals with reporting market prices to authorized people. Part 6 restricts data processing and disclosure. Enforcement in Part 7 includes entry powers, compliance notices, penalties, and appeals. Impact assessment wasn't needed as they expect minimal effects.\n\nI need to avoid legal terms. Use simple words. Start by stating the main aim: mandatory classification and price reporting for sheep carcasses in large slaughterhouses. Mention using new powers from the Agriculture Act 2020. Then outline steps: slaughterhouses must inform government, follow guidelines when weighing and labeling, report prices, and handle data securely. Enforcement includes inspections, penalties for non-compliance, and appeals. Also, the impact is considered minor, so no assessment. Real-world outcomes: maybe better transparency in the market, aiding suppliers and the industry. Maybe some initial costs for slaughterhouses to set up systems, but not significant.\n\nWait, the original says \"no, or no significant impact\" is foreseen, so I should mention that. Also, note that automation is allowed, which might improve efficiency. But since the impact assessment isn't there, perhaps the main points are just the requirements and the enforcement. Make sure to highlight the transparency angle for businesses and the possible economic effect through better market data. Environment isn't mentioned, so skip that. Individuals directly? Maybe farmers or suppliers get better information on pricing. Businesses might need to update their processes. Economy could benefit from standardized data. Keep it all concise in one paragraph, confident tone, without jargon.\n</think>\n\nThis new law requires large sheep slaughterhouses to track and report details about carcass quality and prices, aiming to bring more transparency to the meat market. These businesses must now officially tell the government they’re covered by the rules, classify each carcass using set standards as they weigh it (after assigning a trackable ID number), label them correctly, and share pricing data with authorized officials. While most must follow strict manual checks, some can use automated systems approved by the government. The goal is to standardize how meat is priced, potentially giving farmers clearer insights into how their livestock is valued and improving fair competition. Enforcement includes spot checks by officials, fines for non-compliance, and a process to appeal penalties. Officials claim this won’t significantly affect businesses or costs, though some may need to update reporting systems initially. The move could streamline operations over time and ensure suppliers get consistent market data, though it remains to be seen if this will lead to broader changes in pricing or sustainability practices.",
@@ -333,20 +347,6 @@
     "title": "The Medical Devices and Blood Safety and Quality (Fees Amendment) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/749",
     "summary": "These rules increase fees for medical devices, blood safety, and related services. Most fees rise by 9% to 16%, with steeper hikes for clinical investigations. The changes follow public consultation and apply to things like registering devices, approving testing bodies, and clinical trial oversight. Small companies get more time to pay some fees. There's also a new optional service—paid regulatory advice—replacing an old fee. Updates for Northern Ireland mirror these changes. The full cost breakdown is available online.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "28 June 2025",
-    "title": "The Tuberculosis in Animals (England) (Amendment) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/748",
-    "summary": "This order tweaks the rules on tuberculosis in animals in England, updating the 2021 regulations. No major impact is expected for businesses or organisations, so there’s no formal assessment of the changes. Just a straightforward adjustment to keep things running smoothly.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "28 June 2025",
-    "title": "The Online Safety Act 2023 (Fees Notification) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/747",
-    "summary": "These rules explain what online service providers must give Ofcom (the UK’s communications regulator) when reporting certain details under the Online Safety Act 2023. This helps Ofcom work out what fees the provider needs to pay. The rules specify what proof or documents must be sent, how to send them—referencing Ofcom’s published guidelines—and note that no separate business cost assessment was done because it relates to fees. Ofcom did, however, assess the rules’ impact during public consultations, with updates in their final policy statement. More details are available on their website.",
     "country": "United Kingdom"
   }
 ]
