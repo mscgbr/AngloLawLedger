@@ -105,7 +105,8 @@ for entry in reversed(entries):
                 "Use plain English with a tone that's confident, slightly engaging, and publicly accessible. "
                 "Make the summary easy to understand, and include—if possible—any likely real-world outcomes this law might affect, "
                 "such as changes to people's lives, businesses, government policy, the economy, or the environment. "
-                "Avoid legal jargon and don't include footnotes, intros, or disclaimers.\n\n" + raw_text
+                "Avoid legal jargon and don't include footnotes, intros, or disclaimers. Wrap the final paragraph ONLY between "
+                "##SUMMARY_START and ##SUMMARY_END markers:\n\n" + raw_text
             )
 
             payload = {
@@ -121,7 +122,16 @@ for entry in reversed(entries):
                 ]
             }
             ai_resp = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, data=json.dumps(payload))
-            summary = ai_resp.json()["choices"][0]["message"]["content"].strip()
+            full_output = ai_resp.json()["choices"][0]["message"]["content"].strip()
+
+            # Extract only the final summary between markers
+            summary_match = re.search(r"##SUMMARY_START\s*(.*?)\s*##SUMMARY_END", full_output, re.DOTALL)
+            if summary_match:
+                summary = summary_match.group(1).strip()
+            else:
+                print("Warning: AI response did not contain valid summary markers. Saving full output.")
+                summary = full_output
+
     except Exception as e:
         print(f"Summary failed: {e}")
         summary = "No explanatory summary available."
