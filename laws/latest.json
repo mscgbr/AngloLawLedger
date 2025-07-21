@@ -1,5 +1,12 @@
 [
   {
+    "date": "21 July 2025",
+    "title": "The Online Safety Act 2023 (Commencement No. 6) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/888",
+    "summary": "The Online Safety Act 2023 is streamlining its oversight rules by repealing an older regulatory framework from the Communications Act 2003. From July 2025, video-sharing platforms that were previously governed by both laws will fall entirely under the new Act, meaning they’ll follow updated “duties of care” designed to combat harmful content and ensure online safety. This simplifies compliance for companies and aligns responsibility under a modern system, potentially leading to clearer obligations for platforms like YouTube or TikTok to monitor content while reducing bureaucratic duplication. The end of the transition period marks a shift toward stricter enforcement under the 2023 Act, prioritizing user protections and tech accountability.",
+    "country": "United Kingdom"
+  },
+  {
     "date": "18 July 2025",
     "title": "The Civil Procedure (Amendment No. 2) Rules 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/893",
@@ -340,13 +347,6 @@
     "title": "The Air Navigation (Restriction of Flying) (Southampton) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/830",
     "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "14 July 2025",
-    "title": "The Power to Award Degrees etc. (LTE Group Limited) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/826",
-    "summary": "This new law allows LTE Group Limited—a private education provider—to award specific qualifications for courses they teach from January 1, 2026, to December 31, 2029, without needing ongoing government oversight. While the decision doesn’t impact businesses, charities, or public sector operations, it means students enrolled in LTE Group courses during that timeframe could earn accredited qualifications directly through the organization, potentially expanding access to specialized training or degrees they offer. For most of the public, the change is subtle: it formalizes LTE Group’s ability to confer degrees independently for four years but doesn’t trigger broader policy shifts, cost changes, or regulatory adjustments elsewhere. If they’re studying with LTE Group, though, this could streamline graduation processes by cutting out third-party accreditation steps.",
     "country": "United Kingdom"
   }
 ]
