@@ -1,5 +1,19 @@
 [
   {
+    "date": "22 July 2025",
+    "title": "The Air Navigation (Restriction of Flying) (Firth of Forth) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/900",
+    "summary": "No explanatory summary available.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "22 July 2025",
+    "title": "The Local Audit (Major Local Audit) (Amendment) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/896",
+    "summary": "This law updates rules about when a local authority (like a city or county council) needs its accounts to undergo a major local audit, which determines the scale of oversight for public spending. Specifically, for financial years starting on or after April 2025, any local authority with an annual income or expenditure exceeding £875 million—whichever is higher—will be classified as requiring a “major local audit.” The change raises the audit threshold (previously lower), meaning fewer smaller councils will face these stricter checks. The government says there’s no expected significant impact, so it hasn’t done a detailed analysis of potential effects, though larger councils above £875m may see increased audit scrutiny and administrative costs. For most people and businesses, this tweak likely won’t make a difference day-to-day.",
+    "country": "United Kingdom"
+  },
+  {
     "date": "21 July 2025",
     "title": "The OTC Derivatives Risk Mitigation and Central Counterparties (Equivalence) (Switzerland) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/898",
@@ -333,20 +347,6 @@
     "title": "The Subsidy Control (Subsidies and Schemes of Interest or Particular Interest) (Amendment) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/845",
     "summary": "<think><think>\nOkay, let's tackle this. The user wants a summary of some UK regulations that amend previous ones. The main point is the increase in the subsidy threshold from £10m to £25m in non-sensitive sectors.\n\nFirst, I need to understand what subsidy control means here. From what I know, the Subsidy Control Act 2022 replaced EU state aid rules after Brexit. Schemes above a certain value need to be reviewed by the CMA before they're approved. So raising the threshold means fewer subsidies will require that review.\n\nThe user mentioned including real-world outcomes. This change would likely reduce the administrative burden on businesses and public authorities because they don't have to go through the CMA as much for smaller subsidies. This could make it faster for them to get approval, encouraging more local projects or business investments since they can access funds easier without waiting for a lengthy review. On the flip side, the CMA might focus only on larger subsidies that have a bigger market impact, which could be good for competition. However, if there's less oversight on smaller schemes, there might be a risk of inefficient use of public funds, but the government probably thinks the benefits outweigh that risk here.\n\nI need to avoid jargon. Terms like \"ceteris paribus\" or \"subsidy schemes\" might be too technical. Instead, say \"individual or combined subsidies\" and \"programs that provide financial support.\" Also, check the original text for any key terms that should be kept but explained.\n\nThe original note says a full impact assessment isn't done because there's no significant impact anticipated. So the real-world effect is minimal changes expected, but maybe businesses in non-sensitive sectors can now get subsidies up to £25m without prior approval, which could lead to quicker implementation of projects. For example, a local government wanting to give a subsidy to a small business might not have to go through the same process as before. However, sensitive sectors like agriculture or defense would have lower thresholds, so this change doesn't affect them.\n\nAlso, the Explanatory Memorandum is published online, but the user wants that footnote part excluded. So don't mention where it's published. Focus on the change, who it affects, and possible outcomes.\n\nLet me structure this into a single paragraph. Start by stating the increase in threshold. Then explain what the previous was and the current implication. Mention the CMA referral requirement. Then the likely outcomes: less bureaucracy for smaller subsidies, faster approvals, economic growth encouragement, and possible effects on competition or public funds. Keep it confident, engaging, and avoid negative jargon unless the original suggests it. Since the government doesn't foresee significant impact, maybe note that they expect minimal disruption.\n</think>\n\nThe UK has raised the financial threshold for subsidies requiring government competition review before approval. Under updated rules, individual or combined subsidies in non-sensitive sectors (like retail or tech) must now exceed £25 million—up from £10 million—to be classified as “subsidies of particular interest,” triggering mandatory checks by the Competition and Markets Authority (CMA) to ensure they don’t distort markets. This means smaller grants (up to £25m) can be rolled out faster by local authorities or agencies without prior CMA approval, reducing red tape for initiatives like business support or regional development projects. While the move aims to streamline aid delivery and encourage local growth without major economic upheaval, critics may argue it could risk less oversight of taxpayer-funded programs, though the government insists most smaller subsidies won’t significantly affect competition. Businesses and communities might see quicker access to support, while the CMA focuses scrutiny on larger deals with broader market impacts.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "14 July 2025",
-    "title": "The Air Navigation (Restriction of Flying) (Manchester) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/840",
-    "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "14 July 2025",
-    "title": "The Criminal Justice Act 2003 (Suitability for Fixed Term Recall) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/833",
-    "summary": "This new law changes the rules about releasing prisoners who’ve been sent back to jail after breaking their parole or license conditions. Previously, adults serving sentences of less than 12 months were usually automatically released after 28 days (or 14 days if their sentence was under 12 months), unless they were linked to serious offenses, terrorism, or required higher-risk monitoring. Now, the criteria have tightened: automatic release applies only to those aged 18 or older with sentences under four years, excluding anyone convicted of offenses listed in a new category (Schedule 19AA), involved in terrorism, recalled for another crime, or needing strict supervision under “multi-agency public protection arrangements” (MAPPA levels 2 or 3). If a prisoner faces a new serious charge or is deemed a terror risk *after* being told they’ll be released automatically, authorities can delay their release and shift them to a more considered process involving the Parole Board or Secretary of State. The result? Fewer early releases for higher-risk offenders or those tied to severe crimes (including those now listed in Schedule 19AA), which could mean safer communities but longer detention periods for some prisoners. Conversely, lower-risk individuals with shorter sentences might still benefit from quicker reentry into society. The government’s Impact Assessment warns this might increase administrative workload for the justice system but aims to balance public safety with efficient prisoner management.",
     "country": "United Kingdom"
   }
 ]
