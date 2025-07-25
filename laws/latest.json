@@ -1,5 +1,33 @@
 [
   {
+    "date": "25 July 2025",
+    "title": "The Online Safety Super-Complaints (Eligibility and Procedural Matters) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/919",
+    "summary": "These rules explain which organizations can officially report serious online safety concerns to OFCOM under the Online Safety Act. To qualify as an eligible entity, groups must meet specific criteria (like being a recognized consumer or safety watchdog) and provide evidence to back their status. If OFCOM doesn’t approve their eligibility, the complaint is automatically rejected. When filing, groups must include all required details and can’t resubmit within six months unless exceptional circumstances apply. OFCOM can dismiss complaints if they lack necessary info or repeat prior issues. The process aims to ensure only credible, well-prepared concerns get reviewed, streamlining oversight of online safety without overburdening regulators. No major impacts on businesses or the public are anticipated, as the focus is on equipping OFCOM to target systemic risks.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "25 July 2025",
+    "title": "The Transport Act 2000 (Air Traffic Services) (Prescribed Terms) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/918",
+    "summary": "This law change gives the UK government more flexibility to adjust the licenses of air traffic service providers—like NATS, which manages high-altitude flights—by updating the types of services they offer and the regions they cover. The tweak follows a push to modernize how airspace is designed, allowing the government to task NATS with proposing improvements (such as more efficient flight paths) and the Civil Aviation Authority (CAA) to approve them. While the reform is procedural, it could lead to smoother airspace management over time, potentially benefiting airlines, airports, and travelers through reduced delays or operational costs. However, officials say the immediate economic impact will be small, with annual costs for businesses staying under £10 million, so no detailed analysis was required.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "25 July 2025",
+    "title": "The Electricity Capacity (Amendment) (No. 2) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/917",
+    "summary": "These new rules update the UK's Electricity Capacity Regulations to let power providers end their existing agreements without penalties if they want to switch to government-backed contracts for carbon capture projects. The change ensures companies investing in cleaner energy tech aren’t stuck in old deals, but they’ll need to plan ahead: terminations only take effect years later to avoid disrupting the power supply. It also sets out how providers can appeal if their switch gets rejected and clarifies financial protections like releasing held deposits. Designed to smooth transitions into carbon capture initiatives, this tweak aims to support greener energy projects while keeping the grid stable, likely speeding up the UK’s shift away from polluting power sources with minimal disruption to businesses already in the system.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "25 July 2025",
+    "title": "The Legislative Reform (Disclosure of Adult Social Care Data) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/916",
+    "summary": "This legislation updates rules to let the UK government and Welsh authorities share matched data about adult social care services with local councils in both England and Wales. Previously, strict limits on sharing this information made it harder to spot mistakes or fraud in payments for support like home care, nursing homes, or disability assistance. By scrapping these rules, councils can now cross-check data—such as who’s receiving care and what they’re being charged—to recover misused funds, fix billing errors, and ensure services are run fairly. The change aims to cut costs for local authorities by reducing losses from fraudulent claims or administrative slip-ups and streamline processes by removing outdated paperwork hurdles. Any money saved could free up resources for councils to reinvest in social care improvements or other community needs, while stronger data collaboration might lead to quicker identification of ineligible claims or service gaps in vulnerable populations.",
+    "country": "United Kingdom"
+  },
+  {
     "date": "24 July 2025",
     "title": "The Air Navigation (Restriction of Flying) (Epping) (Emergency) (No. 2) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/924",
@@ -319,34 +347,6 @@
     "title": "The Horizon Convictions Redress Scheme (Amendment) and Grenfell Support (Restorative Justice) Programme (Income Tax Exemption) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/867",
     "summary": "The government has updated tax rules to ensure certain compensation payments aren’t taxed, helping people who were wrongly impacted by two major cases. If you were convicted, cautioned, or faced prosecution due to issues with the flawed Horizon IT system (used by businesses and post offices) and had those charges overturned or resolved without a conviction, payments from the redress scheme will now be exempt from income tax, capital gains tax, and inheritance tax—all effective retroactively from June 2025. Similarly, payments made since June 2024 under the Grenfell Tower fire support program, which aids those affected by the 2017 disaster, won’t count as taxable income. These changes mean recipients keep more of the compensation they’re owed without worrying about tax bills, offering clearer financial relief for both groups. For Horizon cases, this could benefit hundreds of people who lost livelihoods or faced reputational harm, while Grenfell survivors and families will have less financial stress as they rebuild their lives.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "16 July 2025",
-    "title": "The Air Navigation (Restriction of Flying) (Castle of Mey) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/856",
-    "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "16 July 2025",
-    "title": "The A282 Trunk Road (Dartford-Thurrock Crossing Charging Scheme) (Variation) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/853",
-    "summary": "The UK’s Dartford-Thurrock Crossing, a major Thames River route, will see a 40% increase in toll charges under a revised charging system that bills drivers electronically without requiring them to stop. While the update builds on the existing 2013 framework for busy road users, the government hasn’t conducted a full review to determine the effect on commuters, local businesses, or efforts to reduce congestion and emissions. A jump this high could strain household budgets, nudge drivers toward alternative routes, or reduce crossings, potentially impacting regional traffic flow and business activity. Revenue from the hike may fund road upkeep or other transport projects, though the exact consequences remain unclarified.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "16 July 2025",
-    "title": "The Air Navigation (Restriction of Flying) (Balmedie, Aberdeen) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/852",
-    "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "15 July 2025",
-    "title": "The Court of Protection (Amendment) Rules 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/866",
-    "summary": "These updates to the Court of Protection rules clarify procedures for handling contempt and committal cases. They remove an outdated reference, ensure defendants in committal hearings are warned that staying silent might lead the court to assume they’re hiding something (in line with criminal cases), and adjust how identities are protected in contempt proceedings. Courts will now weigh non-disclosure of a defendant’s identity early in hearings to avoid privacy breaches later, and judges gain more flexibility to shield identities during contempt cases—though this won’t apply if someone is ultimately sent to prison for contempt. Judgments will only be published when a committal sentence is given. Since these changes align with existing legal practices and case law, they’re unlikely to affect the public, businesses, or government operations significantly.",
     "country": "United Kingdom"
   }
 ]
