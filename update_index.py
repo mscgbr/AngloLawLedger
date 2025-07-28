@@ -101,22 +101,19 @@ for entry in reversed(entries):
                 "X-Title": "AngloLawLedger"
             }
             prompt = (
-                "Rewrite the following explanatory note from UK legislation into a single, clear paragraph. "
-                "Use plain English with a tone that's confident, slightly engaging, and publicly accessible. "
-                "Make the summary easy to understand, and include—if possible—any likely real-world outcomes this law might affect, "
-                "such as changes to people's lives, businesses, government policy, the economy, or the environment. "
-                "Avoid legal jargon and don't include footnotes, intros, or disclaimers. Wrap the final paragraph ONLY between "
-                "##SUMMARY_START and ##SUMMARY_END markers:\n\n" + raw_text
+                "Rewrite the following explanatory note from UK legislation into one short, clear paragraph. "
+                "Use plain English. Focus on real-world impact—what the law changes, what that allows, and how it might affect people, services, or systems. "
+                "Be direct, no disclaimers or legalese. Highlight any concrete outcomes where possible. "
+                "Wrap the final summary ONLY between the ##SUMMARY_START and ##SUMMARY_END markers:\n\n" + raw_text
             )
 
             payload = {
                 "model": MODEL_NAME,
                 "messages": [
                     {"role": "system", "content": (
-                        "You are an expert at converting UK legal explanatory notes into clear, engaging summaries for the general public. "
-                        "You explain complex legislation in plain English, focusing on what's changing and what it could mean for real people. "
-                        "You make it easy to understand, avoid technical jargon, and highlight any likely impacts where appropriate—on individuals, businesses, the economy, or the environment. "
-                        "Your tone is professional, slightly energetic, and never dry."
+                        "You are an expert at rewriting UK legal explanatory notes into short, impactful public summaries. "
+                        "Focus on what’s changing and what it enables. Use plain English, avoid legal jargon, and explain the real-world significance—whether for public services, oversight, businesses, the environment, or vulnerable groups. "
+                        "Never hedge or explain what the law won’t do. Your tone is confident, clear, and free of fluff."
                     )},
                     {"role": "user", "content": prompt}
                 ]
