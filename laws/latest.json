@@ -1,6 +1,20 @@
 [
   {
     "date": "3 September 2025",
+    "title": "The National Health Service (Pharmaceutical and Local Pharmaceutical Services) (Miscellaneous Amendments) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/989",
+    "summary": "This law changes how rural pharmacies and doctor-led dispensing services can outsource medicine preparation. It officially allows \"hub and spoke\" systems where local pharmacies or doctors (\"spokes\") send prescriptions to a central pharmacy (\"hub\") for processing, then receive the medicines back for final patient supply. Community pharmacies must now tell NHS England before setting up these arrangements and follow strict rules on how they operate. NHS England can block unsafe or poorly run hub systems. The law also removes outdated paperwork requirements like mandatory practice leaflets and staff reference checks, freeing up pharmacist time. It ensures HPV vaccines remain freely available to pharmacies under NHS supply deals and updates digital systems (replacing NHSmail with NHSnet.Connect). Crucially, this secures access to medicines in remote villages by making shared pharmacy services legal and safe, while giving NHS England direct oversight to prevent poor-quality outsourcing that could risk patient safety.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "3 September 2025",
+    "title": "The Housing Benefit (Habitual Residence) (Amendment) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/988",
+    "summary": "These changes simplify housing benefit applications for people already receiving universal credit by removing redundant residency checks. Previously, even if someone qualified for universal credit, their habitual residence status (in the UK, Channel Islands, Isle of Man, or Republic of Ireland) had to be re-evaluated for housing benefit eligibility. Now, if they’re already on universal credit, the residency decision is treated as settled, allowing them to access housing benefit faster without repeating the process. This streamlines support for vulnerable individuals and reduces administrative burden on both applicants and local authorities.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "3 September 2025",
     "title": "The Dentists Act 1984 (Medical Authorities) Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/984",
     "summary": "This law designates the University of Portsmouth as an official authority to run dentistry exams and issue practice licences. Graduates passing these exams can now be registered with the General Dental Council, ensuring more dentists can legally qualify through this university. By adding a new pathway for licensing, the move may increase access to dental care by streamlining training and certification at this institution.",
@@ -333,20 +347,6 @@
     "title": "The Electricity Capacity (Amendment) (No. 2) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/917",
     "summary": "These new rules update the UK's Electricity Capacity Regulations to let power providers end their existing agreements without penalties if they want to switch to government-backed contracts for carbon capture projects. The change ensures companies investing in cleaner energy tech aren’t stuck in old deals, but they’ll need to plan ahead: terminations only take effect years later to avoid disrupting the power supply. It also sets out how providers can appeal if their switch gets rejected and clarifies financial protections like releasing held deposits. Designed to smooth transitions into carbon capture initiatives, this tweak aims to support greener energy projects while keeping the grid stable, likely speeding up the UK’s shift away from polluting power sources with minimal disruption to businesses already in the system.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "25 July 2025",
-    "title": "The Legislative Reform (Disclosure of Adult Social Care Data) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/916",
-    "summary": "This legislation updates rules to let the UK government and Welsh authorities share matched data about adult social care services with local councils in both England and Wales. Previously, strict limits on sharing this information made it harder to spot mistakes or fraud in payments for support like home care, nursing homes, or disability assistance. By scrapping these rules, councils can now cross-check data—such as who’s receiving care and what they’re being charged—to recover misused funds, fix billing errors, and ensure services are run fairly. The change aims to cut costs for local authorities by reducing losses from fraudulent claims or administrative slip-ups and streamline processes by removing outdated paperwork hurdles. Any money saved could free up resources for councils to reinvest in social care improvements or other community needs, while stronger data collaboration might lead to quicker identification of ineligible claims or service gaps in vulnerable populations.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "24 July 2025",
-    "title": "The Air Navigation (Restriction of Flying) (Epping) (Emergency) (No. 2) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/924",
-    "summary": "No explanatory summary available.",
     "country": "United Kingdom"
   }
 ]
