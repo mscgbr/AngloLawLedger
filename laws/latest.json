@@ -1,5 +1,12 @@
 [
   {
+    "date": "22 September 2025",
+    "title": "The Online Safety Act 2023 (Qualifying Worldwide Revenue) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1032",
+    "summary": "These regulations clarify how Ofcom calculates a company's \"qualifying worldwide revenue\" (QWR) to set fees and penalties under the Online Safety Act 2023. For fees, QWR focuses only on revenue linked to regulated services, using data from two years prior to ensure stability. But for penalties, if a corporate group is jointly liable, QWR includes *all* revenue from their most recent full accounting period—even non-regulated income—potentially increasing penalty amounts significantly. This means platforms failing to meet safety rules could face heavier fines if part of a larger group, while fees charged to companies for Ofcom’s oversight will reflect their actual regulated service earnings more accurately.",
+    "country": "United Kingdom"
+  },
+  {
     "date": "19 September 2025",
     "title": "The Air Navigation (Restriction of Flying) (Epping) (Emergency) (No. 2) (Revocation) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1035",
@@ -340,13 +347,6 @@
     "title": "The Power to Award Degrees etc. (The Liverpool Institute for Performing Arts) Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/972",
     "summary": "The Order allows the Liverpool Institute for Performing Arts to legally grant taught undergraduate degrees for four years from 15 September 2025, ensuring students completing eligible programs can formally receive recognized qualifications through the institute during this period without expanding broader degree-giving powers or disrupting existing public-sector education systems.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "26 August 2025",
-    "title": "The Air Navigation (Restriction of Flying) (Tulliallan) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/970",
-    "summary": "No explanatory summary available.",
     "country": "United Kingdom"
   }
 ]
