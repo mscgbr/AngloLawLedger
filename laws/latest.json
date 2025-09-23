@@ -1,5 +1,26 @@
 [
   {
+    "date": "23 September 2025",
+    "title": "The Economic Crime and Corporate Transparency Act 2023 (Consequential, Incidental and Miscellaneous Provisions) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1037",
+    "summary": "and",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "23 September 2025",
+    "title": "The Register of People with Significant Control (Amendment) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1036",
+    "summary": "The law updates rules for UK companies to report details about people who control them (called \"persons with significant control\" or PSCs) directly to Companies House, replacing old local registers. Companies must now specify names and dates when reporting late or missing responses from individuals, restrictions on shares, or corrections if past data was wrong. These changes boost transparency by creating a centralized record of ownership disputes and compliance issues, making it easier to track hidden control structures. Failing to report without excuse may lead to enforcement action against companies or their directors, reducing opportunities for anonymous financial manipulation.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "23 September 2025",
+    "title": "The Limited Liability Partnerships (Application and Modification of Company Law) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1033",
+    "summary": "These regulations bring limited liability partnerships (LLPs) in line with new corporate transparency rules under the Economic Crime and Corporate Transparency Act 2023. Companies House will now verify the identity of LLP members and those with significant control, and stricter checks will block disqualified directors from joining LLPs. Existing local registers for LLP members and controllers will be abolished, requiring changes to be reported directly to Companies House instead—giving authorities more oversight to combat financial crime. LLPs with existing local registers will have 14 days to update information once the rules begin, and transitional steps ensure past records remain valid until updated. The changes aim to close loopholes allowing anonymous or illegal control of businesses.",
+    "country": "United Kingdom"
+  },
+  {
     "date": "22 September 2025",
     "title": "The Online Safety Act 2023 (Qualifying Worldwide Revenue) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1032",
@@ -326,27 +347,6 @@
     "title": "The Air Navigation (Restriction of Flying) (Bristol) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/976",
     "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "29 August 2025",
-    "title": "The Aldwark Bridge (Revision of Tolls and Traffic Classification) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/975",
-    "summary": "This law sets new limits on how much drivers must pay to cross Aldwark Bridge, changing both the maximum toll amounts and which vehicles (like cars, vans, or lorries) get charged. It replaces the old 2005 pricing rules, meaning drivers could pay more or less depending on their vehicle type, giving the bridge operators updated authority to manage toll income based on current needs.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "28 August 2025",
-    "title": "The Designation of Schools Having a Religious Character (England) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/979",
-    "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "28 August 2025",
-    "title": "The Power to Award Degrees etc. (The Liverpool Institute for Performing Arts) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/972",
-    "summary": "The Order allows the Liverpool Institute for Performing Arts to legally grant taught undergraduate degrees for four years from 15 September 2025, ensuring students completing eligible programs can formally receive recognized qualifications through the institute during this period without expanding broader degree-giving powers or disrupting existing public-sector education systems.",
     "country": "United Kingdom"
   }
 ]
