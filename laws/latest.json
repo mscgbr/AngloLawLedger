@@ -1,5 +1,26 @@
 [
   {
+    "date": "26 September 2025",
+    "title": "The Electrical Safety Standards in the Private Rented Sector (England) (Amendment) (Extension to the Social Rented Sector) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1043",
+    "summary": "Social housing landlords in England must now follow the same electrical safety rules as private landlords: they must get all fixed wiring inspected and tested by a qualified person every five years, and—critically—for the first time—regularly check the safety of any electrical appliances they provide to tenants (like fridges or kettles). This means over two million social housing tenants will finally have legal protection against dangerous wiring and faulty landlord-owned appliances. Landlords must fix unsafe issues immediately, prove checks are done in clear reports, and face fines of up to £40,000 for breaking the rules. Existing social housing rentals have until 1 November 2026 to meet these standards, with regular reviews to tighten rules further. Tenants refusing access won’t let landlords escape responsibility—authorities can step in to make repairs and charge the landlord.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "26 September 2025",
+    "title": "The Hazards in Social Housing (Prescribed Requirements) (England) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1042",
+    "summary": "Landlords of social homes must now fix dangerous damp and mould within 5 working days, and tackle life-threatening hazards like gas leaks or structural risks within 24 hours. If repairs can't be done in time, they must immediately provide tenants with temporary housing at no cost. Landlords must also keep tenants updated throughout repairs, complete preventative work within 12 weeks to stop problems returning, and can't bypass these rules in leases. Tenants finally get enforceable deadlines for urgent safety fixes, ending the cycle of delayed responses to hazardous living conditions.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "26 September 2025",
+    "title": "The Power to Award Degrees etc. (LTE Group) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1039",
+    "summary": "Beginning January 1, 2026, LTE Group can legally grant specific teaching qualifications for four years, until December 31, 2029. This change enables LTE Group to formally recognize qualifications like degrees or certifications in education without altering existing public services, business regulations, or oversight structures. Since no impact assessments were needed, this action likely formalizes existing practices or fills a technical authorization gap, affecting only LTE Group’s administrative powers during the outlined period.",
+    "country": "United Kingdom"
+  },
+  {
     "date": "25 September 2025",
     "title": "The Air Navigation (Restriction of Flying) (Firkin Point, Loch Lomond) (Emergency) (No. 2) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1048",
@@ -326,27 +347,6 @@
     "title": "The Environment Agency (Holme Styes Reservoir) Drought (No. 2) Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/997",
     "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "4 September 2025",
-    "title": "The Response to the Committee on Climate Change Report (Extension of Period) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/991",
-    "summary": "The law gives ministers two extra weeks—from 15 to 29 October 2025—to formally respond to experts’ climate progress advice, ensuring thorough review without delaying climate action or affecting public services, businesses, or communities.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "4 September 2025",
-    "title": "The Data (Use and Access) Act 2025 (Commencement No. 3 and Transitional and Saving Provisions) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/996",
-    "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "3 September 2025",
-    "title": "The National Health Service (Pharmaceutical and Local Pharmaceutical Services) (Miscellaneous Amendments) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/989",
-    "summary": "This law changes how rural pharmacies and doctor-led dispensing services can outsource medicine preparation. It officially allows \"hub and spoke\" systems where local pharmacies or doctors (\"spokes\") send prescriptions to a central pharmacy (\"hub\") for processing, then receive the medicines back for final patient supply. Community pharmacies must now tell NHS England before setting up these arrangements and follow strict rules on how they operate. NHS England can block unsafe or poorly run hub systems. The law also removes outdated paperwork requirements like mandatory practice leaflets and staff reference checks, freeing up pharmacist time. It ensures HPV vaccines remain freely available to pharmacies under NHS supply deals and updates digital systems (replacing NHSmail with NHSnet.Connect). Crucially, this secures access to medicines in remote villages by making shared pharmacy services legal and safe, while giving NHS England direct oversight to prevent poor-quality outsourcing that could risk patient safety.",
     "country": "United Kingdom"
   }
 ]
