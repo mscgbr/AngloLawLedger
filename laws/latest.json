@@ -1,6 +1,13 @@
 [
   {
     "date": "14 October 2025",
+    "title": "The Financial Services and Markets Act 2023 (Commencement No. 11 and Saving Provisions) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1078",
+    "summary": "No explanatory summary available.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "14 October 2025",
     "title": "The Street and Road Works (Charges and Penalties) (Amendments) (England) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1074",
     "summary": "tags. \n\nTesting phrasing: \"Highway authorities now must spend half their excess street work charge revenue directly on road repairs\" - yes, that's the golden nugget. Public cares about potholes, not legal procedures. \n\nFinal structure: \n- Lead with tangible benefit (road repairs funded) \n- Then penalty increases as enforcement tool \n- End with 7-day charging as schedule pressure \n\n*double-checks* All England-specific? Yes. No Wales/Scotland mentions. Good. \n\nUser's strict about no disclaimers so deleting \"this applies only to England\" would be lying... but original says \"England only\" upfront so implicit. Can skip jurisdictional details to save space per \"short paragraph\" rule. \n\nThere. Ready to write.\n</think>\n\n##SUMMARY_START\nThis law doubles on-the-spot fines for contractors who fail to notify authorities about street works or work without proper permits in England, making violations costlier to encourage compliance. It also changes charges for delayed roadworks to apply every day—including weekends—so prolonged disruptions become significantly more expensive. Crucially, highway authorities must now spend half of their surplus income from street work fees directly on essential road repairs, putting more money into fixing potholes and maintaining local roads people rely on daily.",
@@ -340,13 +347,6 @@
     "title": "The Access to the Countryside (Coastal Margin) (Isle of Wight) (No. 1) Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1024",
     "summary": "The government has officially ended the preparation period for coastal access land around the Isle of Wight, finalizing public rights to use these areas under the Marine and Coastal Access Act 2009. This confirms new long-distance walking routes, enabling hikers and visitors to legally explore protected coastal paths while ensuring Natural England can manage access and protect sensitive habitats. The changes took effect without a new impact assessment because earlier evaluations under the 2009 Act already addressed potential effects.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "16 September 2025",
-    "title": "The Financial Services and Markets Act 2023 (Capital Buffers and Macro-prudential Measures) (Consequential Amendments) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1023",
-    "summary": "Section 1 of the Financial Services and Markets Act 2023 repeals older rules (2014 Regulations) that required banks to hold extra capital to prevent financial crises, replacing them with updated 2025 regulations that retain key safeguards while adjusting oversight procedures. Starting July 2025, the new rules will ensure banks maintain resilience but align requirements with current regulatory frameworks, aiming to simplify compliance without introducing stricter measures or shifting systemic risk management practices.",
     "country": "United Kingdom"
   }
 ]
