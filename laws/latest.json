@@ -1,6 +1,27 @@
 [
   {
     "date": "16 October 2025",
+    "title": "The Portishead Branch Line (MetroWest Phase 1) (Correction) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1097",
+    "summary": "This update fixes mistakes from a 2022 planning decision, formally enabling the restart of train services on the Portishead Branch Line as part of the MetroWest Phase 1 project. By correcting errors in legal documents, regional authorities can now approve infrastructure improvements, which will improve connectivity between Portishead and Bristol, reduce road traffic congestion, and support local economic and environmental goals through expanded public transit options.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "16 October 2025",
+    "title": "The Non-Domestic Rating (Definition of Qualifying Retail, Hospitality or Leisure Hereditament) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1093",
+    "summary": "The regulations clarify that only businesses in the retail, hospitality, or leisure sectors will qualify for a reduced multiplier when calculating their business rates. This means local authorities will apply lower tax rates to these businesses, cutting their costs and easing financial pressure on struggling industries. The change takes effect immediately, potentially freeing up funds for eligible businesses to maintain operations, retain staff, or invest in improvements. Other sectors will continue paying at standard rates.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "16 October 2025",
+    "title": "The Motor Vehicles (Driving Licences) (Amendment) (No. 5) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1085",
+    "summary": "Diabetic bus and lorry drivers can now use any modern glucose monitor—including continuous sensors—instead of being forced to do finger-prick blood tests while driving. This change cuts dangerous distractions by letting drivers track their blood sugar safely on the road, reducing unnecessary stops and keeping them focused. Drivers no longer risk losing their licence just for using newer, more convenient monitoring tech approved by their doctor.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "16 October 2025",
     "title": "The School Admissions (Admission Arrangements and Co-ordination of Admission Arrangements) (England) (Amendment) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1081",
     "summary": ":  \nThe new rules add Nancy Reuben Primary School and the rabbinic authority of Od Yosef Hai Synagogue in Hendon to the approved list for coordinating school admissions. This enables local authorities to formally include the school in synchronized admission arrangements, ensuring parents can navigate enrollment across schools following shared timelines and policies. Updates will appear on the UK legislation website.",
@@ -326,27 +347,6 @@
     "title": "The Economic Crime and Corporate Transparency Act 2023 (Consequential, Incidental and Miscellaneous Provisions) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1037",
     "summary": "and",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "23 September 2025",
-    "title": "The Register of People with Significant Control (Amendment) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1036",
-    "summary": "The law updates rules for UK companies to report details about people who control them (called \"persons with significant control\" or PSCs) directly to Companies House, replacing old local registers. Companies must now specify names and dates when reporting late or missing responses from individuals, restrictions on shares, or corrections if past data was wrong. These changes boost transparency by creating a centralized record of ownership disputes and compliance issues, making it easier to track hidden control structures. Failing to report without excuse may lead to enforcement action against companies or their directors, reducing opportunities for anonymous financial manipulation.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "23 September 2025",
-    "title": "The Limited Liability Partnerships (Application and Modification of Company Law) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1033",
-    "summary": "These regulations bring limited liability partnerships (LLPs) in line with new corporate transparency rules under the Economic Crime and Corporate Transparency Act 2023. Companies House will now verify the identity of LLP members and those with significant control, and stricter checks will block disqualified directors from joining LLPs. Existing local registers for LLP members and controllers will be abolished, requiring changes to be reported directly to Companies House instead—giving authorities more oversight to combat financial crime. LLPs with existing local registers will have 14 days to update information once the rules begin, and transitional steps ensure past records remain valid until updated. The changes aim to close loopholes allowing anonymous or illegal control of businesses.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "22 September 2025",
-    "title": "The Online Safety Act 2023 (Qualifying Worldwide Revenue) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1032",
-    "summary": "These regulations clarify how Ofcom calculates a company's \"qualifying worldwide revenue\" (QWR) to set fees and penalties under the Online Safety Act 2023. For fees, QWR focuses only on revenue linked to regulated services, using data from two years prior to ensure stability. But for penalties, if a corporate group is jointly liable, QWR includes *all* revenue from their most recent full accounting period—even non-regulated income—potentially increasing penalty amounts significantly. This means platforms failing to meet safety rules could face heavier fines if part of a larger group, while fees charged to companies for Ofcom’s oversight will reflect their actual regulated service earnings more accurately.",
     "country": "United Kingdom"
   }
 ]
