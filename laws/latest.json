@@ -1,6 +1,13 @@
 [
   {
     "date": "16 October 2025",
+    "title": "The School Admissions (Admission Arrangements and Co-ordination of Admission Arrangements) (England) (Amendment) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1081",
+    "summary": ":  \nThe new rules add Nancy Reuben Primary School and the rabbinic authority of Od Yosef Hai Synagogue in Hendon to the approved list for coordinating school admissions. This enables local authorities to formally include the school in synchronized admission arrangements, ensuring parents can navigate enrollment across schools following shared timelines and policies. Updates will appear on the UK legislation website.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "16 October 2025",
     "title": "The Social Security (Scotland Cross-border Consequential Amendment and Transitional Provision) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1089",
     "summary": "and",
@@ -340,13 +347,6 @@
     "title": "The Online Safety Act 2023 (Qualifying Worldwide Revenue) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1032",
     "summary": "These regulations clarify how Ofcom calculates a company's \"qualifying worldwide revenue\" (QWR) to set fees and penalties under the Online Safety Act 2023. For fees, QWR focuses only on revenue linked to regulated services, using data from two years prior to ensure stability. But for penalties, if a corporate group is jointly liable, QWR includes *all* revenue from their most recent full accounting period—even non-regulated income—potentially increasing penalty amounts significantly. This means platforms failing to meet safety rules could face heavier fines if part of a larger group, while fees charged to companies for Ofcom’s oversight will reflect their actual regulated service earnings more accurately.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "19 September 2025",
-    "title": "The Air Navigation (Restriction of Flying) (Epping) (Emergency) (No. 2) (Revocation) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1035",
-    "summary": "No explanatory summary available.",
     "country": "United Kingdom"
   }
 ]
