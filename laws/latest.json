@@ -1,6 +1,13 @@
 [
   {
     "date": "27 October 2025",
+    "title": "The Court and Public Guardian Fees (Miscellaneous Amendments) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1126",
+    "summary": "This law changes several fees tied to wills, power of attorney, and legal cases. Families of emergency or armed forces personnel who qualify for inheritance tax breaks will now pay **no fee** to address estate issues. Requesting copies of documents like wills from probate records jumps from £1.50 to **£16** per request. Fees for registering lasting power of attorney rise from £82 to **£92**, and resubmitting an incomplete application increases from £41 to **£46**. Lower-income individuals facing insolvency or violence risks are exempt from court fees for certain legal actions. Courts no longer charge fees when reviewing decisions to release prisoners on parole. These adjustments aim to reduce burdens for vulnerable groups while aligning some costs with inflation.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "27 October 2025",
     "title": "The Coasting Schools (England) (Amendment) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1120",
     "summary": "These regulations update how schools in England are defined as \"coasting\" under national education law. By revising the performance thresholds used to identify struggling schools, the change ensures that schools receiving certain funding or status must now meet stricter or clearer standards to avoid being classified as coasting. This could lead to more schools being targeted for oversight, requiring interventions like leadership changes or extra support, potentially improving student outcomes or resource distribution in underperforming areas. Concrete outcomes include updated accountability criteria and revised eligibility for school improvement programs.",
@@ -340,13 +347,6 @@
     "title": "The Power to Award Degrees etc. (Hull College Group) Order of Council 2015 (Amendment) Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1061",
     "summary": "This law extends Hull College Group's legal power to award its own degrees and other academic qualifications until 29 March 2029, ensuring students can continue to receive Hull-branded qualifications without disruption and allowing the college to maintain its current higher education provision seamlessly.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "9 October 2025",
-    "title": "The Online Safety Act 2023 (Commencement No. 5) (Revocation) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1064",
-    "summary": "These new rules scrap the requirement for certain online platforms to start reporting child sexual abuse content to the National Crime Agency from 3 November 2025. This means services like social media and messaging apps will not have to proactively identify and send this harmful material to law enforcement as originally planned under the Online Safety Act. The change directly affects how platforms handle child safety, stopping the mandated reporting system from launching and altering the flow of critical evidence to agencies tackling online child exploitation.",
     "country": "United Kingdom"
   }
 ]
