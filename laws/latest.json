@@ -1,6 +1,13 @@
 [
   {
     "date": "29 October 2025",
+    "title": "The Social Security (Contributions) (Amendment No. 7) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1132",
+    "summary": "This law change ensures compensation payments from the Post Office Capture Redress Scheme (for victims of the faulty Post Office IT system) aren’t counted as income when calculating National Insurance contributions. Whether you receive the payment directly or through a company transfer, you’ll keep the full amount without additional tax costs. This boosts financial relief for individuals and businesses harmed by the error-ridden system, improving trust in redress processes.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "29 October 2025",
     "title": "The Post Office Capture Redress Scheme (Tax Exemptions and Relief) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1130",
     "summary": "These rules let people and companies avoid paying taxes on compensation from the Post Office Capture Redress Scheme, which addresses harms caused by the faulty Capture software. Victims of wrongful prosecution or financial loss will keep more money because compensation payouts won’t be taxed, and companies passing funds to affected individuals also won’t face tax. The exemptions apply retroactively, meaning past payments qualify too. More details at gov.uk.",
@@ -340,13 +347,6 @@
     "title": "The Air Navigation (Restriction of Flying) (Cheltenham) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1072",
     "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "14 October 2025",
-    "title": "The Sentencing Act 2020 (Amendment of Schedule 21) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1071",
-    "summary": "The new regulations add two factors that will lead to longer minimum sentences for murder convictions. Judges must now increase sentences when: (1) the crime occurred after the victim tried to end a close personal relationship, or the offender believed this was happening, and (2) the murder involved suffocation or strangulation. These rules apply only to murders committed on or after the law’s start date, making certain violent domestic cases and specific killing methods result in harsher penalties.",
     "country": "United Kingdom"
   }
 ]
