@@ -1,6 +1,13 @@
 [
   {
     "date": "30 October 2025",
+    "title": "The Air Navigation (Restriction of Flying) (Bentley, South Yorkshire) (Emergency) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1141",
+    "summary": "No explanatory summary available.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "30 October 2025",
     "title": "The Compensation for Miscarriages of Justice (Alteration of Overall Compensation Limits) Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1139",
     "summary": "No explanatory summary available.",
@@ -340,13 +347,6 @@
     "title": "The Income-related Benefits (Subsidy to Authorities) Amendment Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1077",
     "summary": "This law updates rules for calculating housing benefit subsidies paid to UK local authorities, mainly affecting how they manage overpayments and verify claimant details. From April 2024, authorities can only deduct overpayment amounts that match the subsidies they previously received for those errors, limiting financial penalties. It also introduces new subsidy payments for authorities using updated processes (HBAP and HBAAI) to check claimants’ income, pensions, and financial circumstances, based on figures published by the Department for Work and Pensions. For Wales, the rebate portion of the subsidy for 2025/26 is set at 0.369, adjusting deductions linked to rent increases. These changes streamline subsidy calculations, reward accurate verification work, and clarify funding rules for authorities handling housing benefit claims.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "14 October 2025",
-    "title": "The Public Offers and Admissions to Trading (Amendment and Consequential and Transitional Provisions) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1076",
-    "summary": "These regulations adjust rules for public securities offers and trading admissions by clarifying that they won’t take effect until the same date as the revocation of an EU prospectus law (Regulation (EU) 2017/1129), which remains pending. They grant the Financial Conduct Authority (FCA) expanded powers to appoint investigators for compliance checks and create a new regulated activity for operating electronic systems used in public securities offers. Transitional provisions temporarily allow existing financial firms to apply for updated permissions covering this new activity and related exemptions while the framework is finalized. The changes aim to streamline post-Brexit oversight but have not yet altered current practices, as full implementation is delayed pending the EU law’s revocation.",
     "country": "United Kingdom"
   }
 ]
