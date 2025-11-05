@@ -1,6 +1,20 @@
 [
   {
     "date": "5 November 2025",
+    "title": "The A122 (Lower Thames Crossing) Development Consent (Amendment) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1161",
+    "summary": "No explanatory summary available.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "5 November 2025",
+    "title": "The Customs Tariff (Preferential Trade Arrangements) (Amendment) Regulations 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1158",
+    "summary": "UK businesses exporting goods to South Korea can now include EU-made parts when claiming tariff-free or reduced-tariff access under the UK-Korea trade deal. This update, agreed in October 2025, means products using materials sourced from both the UK and EU (like UK-assembled cars with German components) will qualify as 'UK-originating' for Korean customs, cutting import costs for exporters and making UK goods more competitive in the Korean market.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "5 November 2025",
     "title": "The Companies (Directors’ Report) (Payment Reporting) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1152",
     "summary": "No explanatory summary available.",
@@ -333,20 +347,6 @@
     "title": "The Hovercraft (Fees) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1088",
     "summary": "No explanatory summary available.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "20 October 2025",
-    "title": "The M32 Motorway (Junctions 1 to 3) (40 and 60 Miles Per Hour Speed Limits) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1102",
-    "summary": "",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "20 October 2025",
-    "title": "The Proscribed Organisations (Name Change) (Revocation) Order 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1104",
-    "summary": "The new law removes \"Hay’at Tahrir Al-Sham\" from being automatically treated as an alias for Al-Qa’ida under the Terrorism Act. Previously, this group was legally linked to Al-Qa’ida, enabling authorities to freeze its assets and prosecute supporters using anti-terrorism laws. Now, this connection is severed, meaning enforcement actions against Hay’at Tahrir Al-Sham will require fresh evidence of ties to terrorism. While the government claims no major sectoral impact, this change could limit use of existing counter-terrorism tools against the group unless new designations are made.",
     "country": "United Kingdom"
   }
 ]
