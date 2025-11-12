@@ -1,6 +1,13 @@
 [
   {
     "date": "12 November 2025",
+    "title": "The Access to the Countryside (Coastal Margin) (Portsmouth to South Hayling) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1179",
+    "summary": "No explanatory summary available.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "12 November 2025",
     "title": "The Energy Act 2023 (Commencement No. 4) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1173",
     "summary": "No explanatory summary available.",
@@ -340,13 +347,6 @@
     "title": "The Companies and Limited Liability Partnerships (Annotations, Application and Modification of Company Law and Consequential Amendments) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1116",
     "summary": "These regulations require Companies House to add clear markers to official records when someone verifies their identity, applying this rule to both registered companies and unregistered corporate entities. They also remove outdated nationality and service address requirements for individuals and corporate members, shifting focus to centralized identity checks. This aims to improve transparency and accuracy in business ownership data, helping authorities tackle economic crime by ensuring verified identities are consistently recorded and outdated or misleading info is flagged.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "23 October 2025",
-    "title": "The Public Service (Civil Servants and Others) Pensions (Remediable Service) (Amendment) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1115",
-    "summary": "These regulations fix age-based unfairness in civil service pensions. Previously, transitional protections introducing the alpha pension scheme unfairly restricted higher ill-health pension rates to members who retired before 31 March 2022. Now, all members whose ill-health retirement applications were approved before that date but processed afterward will automatically get the higher pension amount—regardless of their age. The changes also let pension managers void inaccurate statements for compensation claims, clarify divorce-related pension splits, and include special provisions to adjust past decisions (like opting out or ill-health retirements) to correct discrimination. These rules apply retroactively to ensure fairer outcomes for affected civil servants.",
     "country": "United Kingdom"
   }
 ]
