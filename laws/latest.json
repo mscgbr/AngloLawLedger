@@ -1,6 +1,13 @@
 [
   {
     "date": "26 November 2025",
+    "title": "The Milton Keynes (Electoral Changes) Order 2025",
+    "link": "http://www.legislation.gov.uk/id/uksi/2025/1237",
+    "summary": "No explanatory summary available.",
+    "country": "United Kingdom"
+  },
+  {
+    "date": "26 November 2025",
     "title": "The Cory Decarbonisation Project Order 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1227",
     "summary": "No explanatory summary available.",
@@ -340,13 +347,6 @@
     "title": "The Nuclear Installations (Prescribed Conditions and Excepted Matter) Regulations 2025",
     "link": "http://www.legislation.gov.uk/id/uksi/2025/1171",
     "summary": "This law adds certain nuclear waste disposal sites to the UK’s liability framework but also creates a simplified process to exempt low-risk sites from it. Previously, only nuclear power plants were covered under the Nuclear Installations Act 1965. The updated regime now includes disposal sites, holding their operators strictly liable (up to a legal cap) for accidents and requiring them to secure approved funds. However, if a site meets four specific safety conditions—like operating under strict permits, having a safe history, posing low radiation risks, and avoiding criticality hazards—it can be classified as an \"excluded disposal site,\" removing its liability under the regime. This ensures operators of other nuclear facilities (e.g., power plants) aren’t held responsible for waste disposed of at such exempt sites. The change aligns the UK with international nuclear safety standards while reducing compliance costs for qualifying low-risk disposal sites.",
-    "country": "United Kingdom"
-  },
-  {
-    "date": "11 November 2025",
-    "title": "The Air Navigation (Restriction of Flying) (Huntingdon Station) (Emergency) (Revocation) Regulations 2025",
-    "link": "http://www.legislation.gov.uk/id/uksi/2025/1176",
-    "summary": "No explanatory summary available.",
     "country": "United Kingdom"
   }
 ]
